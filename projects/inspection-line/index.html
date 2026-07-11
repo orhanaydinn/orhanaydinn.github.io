@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Automated Inspection Line with Cartesian Robot | Orhan Aydin</title>
+<meta content="Mechanical, electrical and automation system design for a conveyor inspection line with machine vision, PLC control and Cartesian robotic sorting." name="description"/>
+<link href="../../style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<header class="site-header">
+<nav class="navbar container">
+<a class="logo" href="../../index.html"><span class="logo-mark">O</span><span>Orhan Aydin</span></a>
+<div class="nav-links">
+<a class="nav-link" href="../../about.html">About</a>
+<a class="nav-link active" href="../../projects.html">Projects</a>
+<a class="nav-link" href="../../index.html#certificates">Certificates</a>
+<a class="nav-link" href="../../index.html#experience">Experience</a>
+<a class="nav-link" href="../../index.html#contact">Contact</a>
+<a class="nav-button" href="../../assets/Orhan-Aydin-CV.pdf" rel="noopener noreferrer" target="_blank">Download CV <span class="button-icon">↓</span></a>
+</div>
+</nav>
+</header>
+<main class="project-detail-page inspection-detail-page">
+<section class="project-detail-hero section">
+<div class="container project-detail-hero-grid">
+<div class="project-detail-hero-copy">
+<a class="project-back-link" href="../../projects.html">← Back to Projects</a>
+<div class="project-detail-kicker-row">
+<span class="project-detail-kicker">Industrial Automation · Mechanical Design</span>
+<span class="project-year-badge">2023</span>
+</div>
+<h1>Automated Inspection Line with Cartesian Robot</h1>
+<p class="project-detail-lead">A multidisciplinary production-line concept combining conveyor transport, machine-vision inspection, PLC-based sequencing, pneumatic rejection and Cartesian robotic sorting.</p>
+<div class="project-detail-actions">
+<a class="button button-primary" href="https://github.com/orhanaydinn/automated-inspection-line-cartesian-robot" rel="noopener noreferrer" target="_blank">View GitHub <span class="button-icon">↗</span></a>
+<a class="button button-secondary" href="https://grabcad.com/library/inspection-line-with-cartesian-robot-1" rel="noopener noreferrer" target="_blank">Download CAD on GrabCAD <span class="button-icon">↗</span></a>
+</div>
+<div class="tag-list project-detail-tags">
+<span>SolidWorks</span><span>Siemens PLC</span><span>Machine Vision</span><span>Cartesian Robot</span><span>Conveyor Systems</span><span>Pneumatics</span>
+</div>
+</div>
+<div class="project-detail-hero-media inspection-hero-media">
+<video aria-label="Automated inspection line with Cartesian robot demonstration" autoplay="" loop="" muted="" playsinline="" poster="../../assets/inspection-line-poster.jpg" preload="metadata">
+<source src="../../assets/inspection-line.mp4" type="video/mp4"/>
+            Your browser does not support the video tag.
+          </video>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Project Brief</p>
+<h2>Inspection, classification and routing within one production system</h2>
+</div>
+<div class="project-detail-prose case-study-prose">
+<p>The line was designed to inspect products while they move through a conveyor system and route them according to their detected quality condition. The concept integrates mechanical layout, electrical panel design, PLC sequencing, vision inspection and robotic material handling.</p>
+<p>The repository documents the verified design work and engineering logic. The original PLC and Factory I/O source files are not currently available, so the project is presented as a system-design case study rather than an executable software package.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container">
+<div class="project-detail-heading">
+<p class="project-detail-section-label">System Workflow</p>
+<h2>Three routing outcomes from one inspection stage</h2>
+<p>Products are classified by the vision stage and then routed through deterministic PLC-controlled actions.</p>
+</div>
+<figure class="project-detail-figure inspection-workflow-figure">
+<img alt="Flowchart showing product inspection, classification, pneumatic rejection and Cartesian robot sorting logic" loading="lazy" src="assets/inspection-workflow-light.png"/>
+<figcaption>Process-flow diagram adapted from the original project documentation, showing the inspection and routing logic in a cleaner light-background view.</figcaption>
+</figure>
+<div class="pipeline-list inspection-pipeline-list">
+<span>Product Entry</span><b>→</b><span>Camera Inspection</span><b>→</b><span>Classification</span><b>→</b><span>PLC Decision</span><b>→</b><span>Packaging / Robot Transfer / Rejection</span>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Mechanical System</p>
+<h2>Conveyors, inspection enclosure and robotic sorting</h2>
+</div>
+<div class="inspection-media-stack">
+<figure class="project-detail-figure">
+<img alt="SolidWorks overview of the complete automated inspection line" loading="lazy" src="assets/inspection-line-overview.jpg"/>
+<figcaption>Complete conveyor layout with inspection station, branch conveyors and Cartesian sorting area.</figcaption>
+</figure>
+<div class="inspection-two-column-media">
+<figure class="project-detail-figure">
+<img alt="Cartesian robot mechanism above the conveyor system" loading="lazy" src="assets/cartesian-robot-detail.jpg"/>
+<figcaption>Cartesian robot using linear motion components and a vacuum end effector.</figcaption>
+</figure>
+<figure class="project-detail-figure">
+<img alt="Machine vision inspection enclosure around the conveyor" loading="lazy" src="assets/vision-inspection-enclosure.jpg"/>
+<figcaption>Enclosed camera station positioned around the moving product line.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Control Design</p>
+<h2>PLC, HMI and electrical-panel architecture</h2>
+</div>
+<div>
+<div class="project-detail-prose case-study-prose">
+<p>The control concept was prepared around a Siemens S7-1511-1 PN PLC with HMI supervision, emergency-stop circuitry, three-phase motor protection, relays, contactors and a 24 V control supply.</p>
+<p>The documented ladder logic includes start/stop latching, conveyor activation, sensor-triggered timing, Cartesian-axis motion, vacuum-gripper control and production counters.</p>
+</div>
+<figure class="project-detail-figure inspection-control-figure">
+<img alt="Conveyor section with sensors and electrical control panel" loading="lazy" src="assets/conveyor-control-panel.jpg"/>
+<figcaption>Conveyor sensing area and operator-control panel integrated into the mechanical layout.</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Routing Logic</p>
+<h2>Quality status determines the physical handling action</h2>
+</div>
+<div class="case-study-findings">
+<article><h3>No defect</h3><p>The product continues toward the packaging conveyor without intervention.</p></article>
+<article><h3>Minor defect</h3><p>The Cartesian robot transfers the product from the main conveyor to a separate route for rework or secondary handling.</p></article>
+<article><h3>Major defect</h3><p>A pneumatic rejection mechanism removes the product after a PLC-controlled delay.</p></article>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Engineering Scope</p>
+<h2>What the project demonstrates</h2>
+</div>
+<div class="case-study-findings">
+<article><h3>System-level mechanical design</h3><p>Conveyor frames, branch routes, machine enclosure and Cartesian robot structure were developed as an integrated SolidWorks assembly.</p></article>
+<article><h3>Automation planning</h3><p>The design maps inspection outcomes to PLC-controlled conveyor, pneumatic and robotic actions.</p></article>
+<article><h3>Electrical documentation</h3><p>Panel layout, motor connections, PLC I/O, protection components and a historical bill of materials were documented.</p></article>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Limitations</p>
+<h2>Documented design rather than executable source code</h2>
+</div>
+<div class="project-detail-prose case-study-prose">
+<p>The original PLC project, Factory I/O files and vision-model source code are not available in the current archive. The GitHub repository therefore contains the project documentation, process logic, CAD evidence and supporting engineering files.</p>
+<p>Any physical implementation would require updated safety validation, electrical review, mechanical analysis, risk assessment and current component selection.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container project-detail-cta">
+<div>
+<p class="project-detail-section-label">Project Files</p>
+<h2>Review the documentation or download the CAD model</h2>
+</div>
+<div class="project-detail-actions">
+<a class="button button-primary" href="https://github.com/orhanaydinn/automated-inspection-line-cartesian-robot" rel="noopener noreferrer" target="_blank">View GitHub <span class="button-icon">↗</span></a>
+<a class="button button-secondary" href="https://grabcad.com/library/inspection-line-with-cartesian-robot-1" rel="noopener noreferrer" target="_blank">Download on GrabCAD <span class="button-icon">↗</span></a>
+<a class="button button-secondary" href="../../projects.html">Back to Projects <span class="button-icon">←</span></a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">© 2026 Orhan Aydin. Built for engineering, AI, and robotics.</footer>
+</body>
+</html>

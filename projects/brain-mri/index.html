@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MRI-Based Brain Tumor &amp; Alzheimer Classification | Orhan Aydin</title>
+<meta content="A deep-learning case study comparing CNN and transfer-learning models for brain tumour and Alzheimer stage classification from MRI images." name="description"/>
+<link href="../../style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<header class="site-header">
+<nav class="navbar container">
+<a class="logo" href="../../index.html"><span class="logo-mark">O</span><span>Orhan Aydin</span></a>
+<div class="nav-links">
+<a class="nav-link" href="../../about.html">About</a>
+<a class="nav-link active" href="../../projects.html">Projects</a>
+<a class="nav-link" href="../../index.html#certificates">Certificates</a>
+<a class="nav-link" href="../../index.html#experience">Experience</a>
+<a class="nav-link" href="../../index.html#contact">Contact</a>
+<a class="nav-button" href="../../assets/Orhan-Aydin-CV.pdf" rel="noopener noreferrer" target="_blank">Download CV <span class="button-icon">↓</span></a>
+</div>
+</nav>
+</header>
+<main class="project-detail-page brain-mri-detail-page">
+<section class="project-detail-hero section">
+<div class="container project-detail-hero-grid">
+<div class="project-detail-hero-copy">
+<a class="project-back-link" href="../../projects.html">← Back to Projects</a>
+<div class="project-detail-kicker-row">
+<span class="project-detail-kicker">AI · Medical Imaging</span>
+<span class="project-year-badge">2025</span>
+</div>
+<h1>MRI-Based Brain Tumor &amp; Alzheimer Classification</h1>
+<p class="project-detail-lead">A deep-learning study for classifying brain tumour presence and Alzheimer’s disease stages from MRI scans, with a baseline CNN compared against multiple transfer-learning architectures.</p>
+<div class="project-detail-actions">
+<a class="button button-primary" href="https://github.com/orhanaydinn/brainTumor_Alzheimer_Prediction" rel="noopener noreferrer" target="_blank">View GitHub <span class="button-icon">↗</span></a>
+</div>
+<div class="tag-list project-detail-tags">
+<span>TensorFlow</span><span>Keras</span><span>CNN</span><span>Transfer Learning</span><span>OpenCV</span><span>Scikit-learn</span><span>Google Colab</span>
+</div>
+</div>
+<div class="project-detail-hero-media brain-mri-hero-media">
+<video aria-label="MRI classification workflow for brain tumour and Alzheimer disease stages" autoplay="" loop="" muted="" playsinline="" poster="../../assets/brain-mri-poster.jpg" preload="metadata"><source src="../../assets/brain-mri.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Project Brief</p>
+<h2>Clinical image classification as a comparative deep-learning problem</h2>
+</div>
+<div class="project-detail-prose case-study-prose">
+<p>The project explores whether a shared image-classification workflow can distinguish both tumour and Alzheimer-related MRI categories. Rather than presenting a single model as the final solution, the work compares a compact baseline CNN with established transfer-learning networks.</p>
+<p>The main engineering focus was building a repeatable pipeline for loading, preprocessing, balancing, training, and comparing models while keeping the notebook practical to resume in Google Colab.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Dataset</p>
+<h2>Six MRI classes across two related tasks</h2>
+</div>
+<div>
+<div class="brain-class-columns">
+<div>
+<h3>Alzheimer classes</h3>
+<ul class="case-study-list">
+<li>Non-demented</li>
+<li>Very mild demented</li>
+<li>Mild demented</li>
+<li>Moderate demented</li>
+</ul>
+</div>
+<div>
+<h3>Tumour classes</h3>
+<ul class="case-study-list">
+<li>Tumour present</li>
+<li>No tumour</li>
+</ul>
+</div>
+</div>
+<p class="case-study-note">Targeted augmentation was applied to the <code>tumor_no</code> class to reduce imbalance without unnecessarily expanding every class.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Method</p>
+<h2>From raw scans to comparable experiments</h2>
+</div>
+<div class="case-study-steps">
+<article><span>01</span><div><h3>Data inspection</h3><p>The dataset was extracted in Colab, its folder structure was validated, and random samples were reviewed before training.</p></div></article>
+<article><span>02</span><div><h3>Preprocessing</h3><p>Images were resized to either 64×64 or 96×96 depending on the model, normalised to the 0–1 range, and label-encoded.</p></div></article>
+<article><span>03</span><div><h3>Dataset split</h3><p>A stratified 80/20 train-test split preserved class proportions across the experimental sets.</p></div></article>
+<article><span>04</span><div><h3>Training and comparison</h3><p>Training duration, accuracy, and loss behaviour were recorded to compare model quality and computational cost.</p></div></article>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section brain-mri-comparison-section">
+<div class="container">
+<div class="case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Model Comparison</p>
+<h2>Baseline and transfer-learning architectures</h2>
+</div>
+<div>
+<div class="model-comparison-table-wrap">
+<table class="model-comparison-table">
+<thead><tr><th>Model</th><th>Role in the study</th></tr></thead>
+<tbody>
+<tr><td>Baseline CNN</td><td>Provides a task-specific reference trained directly on the MRI dataset.</td></tr>
+<tr><td>VGG16</td><td>Tests a deep, established convolutional architecture through transfer learning.</td></tr>
+<tr><td>EfficientNetB0</td><td>Examines a parameter-efficient architecture with balanced scaling.</td></tr>
+<tr><td>ResNet50</td><td>Evaluates residual connections for deeper feature extraction.</td></tr>
+<tr><td>DenseNet121</td><td>Tests dense feature reuse for medical-image representation.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<figure class="case-study-figure model-comparison-figure model-comparison-figure-wide">
+<img alt="Bar chart comparing training accuracy, training loss, validation accuracy, and validation loss across CNN, VGG16, EfficientNet, ResNet50, and DenseNet121" loading="lazy" src="assets/model-comparison.png"/>
+<figcaption>
+            Training and validation accuracy/loss comparison across the five evaluated architectures. The larger chart highlights the strong CNN and DenseNet121 results, the solid VGG16 performance, and the clear underperformance of the EfficientNet run.
+          </figcaption>
+</figure>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Evaluation</p>
+<h2>What the current project measures</h2>
+</div>
+<div class="project-detail-prose case-study-prose">
+<p>The current implementation records training time and produces accuracy and loss curves for model-level comparison. Class distributions are also visualised to make imbalance visible before training.</p>
+<p>Confusion matrices and full classification reports are identified as the next evaluation step. Until those results are added, the project should be read as a comparative training pipeline rather than a clinically validated diagnostic system.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Engineering Notes</p>
+<h2>Reproducibility and practical limitations</h2>
+</div>
+<div class="case-study-findings">
+<article><h3>Checkpoint-based continuation</h3><p>Saved <code>.h5</code> and <code>.keras</code> models allow experiments to continue without repeating expensive training runs.</p></article>
+<article><h3>Model-dependent input size</h3><p>The preprocessing stage supports 64×64 and 96×96 images so that different architectures can be evaluated consistently.</p></article>
+<article><h3>Research prototype</h3><p>The system is intended for learning and experimentation. It is not a medical device and should not be used for diagnosis or treatment decisions.</p></article>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container project-detail-cta">
+<div>
+<p class="project-detail-section-label">Project Link</p>
+<h2>Review the implementation and notebooks</h2>
+</div>
+<div class="project-detail-actions">
+<a class="button button-primary" href="https://github.com/orhanaydinn/brainTumor_Alzheimer_Prediction" rel="noopener noreferrer" target="_blank">View GitHub <span class="button-icon">↗</span></a>
+<a class="button button-secondary" href="../../projects.html">Back to Projects <span class="button-icon">←</span></a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">© 2026 Orhan Aydin. Built for engineering, AI, and robotics.</footer>
+</body>
+</html>

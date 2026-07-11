@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom 1B LLM for Robot Tool Calling | Orhan Aydin</title>
+  <meta name="description" content="Technical case study of OAX-1B-Humanoid, a custom 1B-parameter LLaMA-style model trained for structured JSON robot tool calling." />
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="../../index.html" class="logo"><span class="logo-mark">O</span><span>Orhan Aydin</span></a>
+      <div class="nav-links">
+        <a href="../../about.html" class="nav-link">About</a>
+        <a href="../../projects.html" class="nav-link active">Projects</a>
+        <a href="../../index.html#certificates" class="nav-link">Certificates</a>
+        <a href="../../index.html#experience" class="nav-link">Experience</a>
+        <a href="../../index.html#contact" class="nav-link">Contact</a>
+        <a href="../../assets/Orhan-Aydin-CV.pdf" class="nav-button" target="_blank" rel="noopener noreferrer">Download CV <span class="button-icon">↓</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="project-detail-page oax-case-study-page">
+    <section class="project-detail-hero section">
+      <div class="container project-detail-hero-grid">
+        <div class="project-detail-hero-copy">
+          <a class="project-back-link" href="../../projects.html">← Back to Projects</a>
+          <div class="project-detail-kicker-row">
+            <span class="project-detail-kicker">Language Model · Robot Tool Calling</span>
+            <span class="project-year-badge">2026</span>
+          </div>
+          <h1>Custom 1B LLM for Robot Tool Calling</h1>
+          <p class="project-detail-lead">OAX-1B-Humanoid is a custom LLaMA-style language model developed as the high-level reasoning layer of a humanoid robot assistant. It translates natural-language requests into structured JSON actions that can be checked before execution.</p>
+          <div class="project-detail-actions">
+            <a class="button button-primary" href="https://huggingface.co/orhanaydinn/OAX-1B-Humanoid" target="_blank" rel="noopener noreferrer">View Model <span class="button-icon">↗</span></a>
+          </div>
+          <div class="tag-list project-detail-tags">
+            <span>1B Parameters</span><span>LLaMA-Style</span><span>PyTorch</span><span>Transformers</span><span>LoRA</span><span>SFT</span><span>JSON Tool Calling</span>
+          </div>
+        </div>
+
+        <div class="oax-hero-console" aria-label="Example structured JSON tool call">
+          <div class="oax-console-bar"><span></span><span></span><span></span><strong>structured output</strong></div>
+          <pre><code>{
+  <span class="json-key">"type"</span>: <span class="json-string">"tool_call"</span>,
+  <span class="json-key">"response"</span>: <span class="json-string">"Searching for the cup."</span>,
+  <span class="json-key">"tool"</span>: <span class="json-string">"search_object"</span>,
+  <span class="json-key">"arguments"</span>: {
+    <span class="json-key">"object"</span>: <span class="json-string">"cup"</span>
+  }
+}</code></pre>
+          <div class="oax-console-status"><span>✓</span> Valid JSON response</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Problem</p>
+          <h2>Natural language is flexible; robot interfaces must be predictable</h2>
+        </div>
+        <div class="project-detail-prose case-study-prose">
+          <p>A general language model can produce useful instructions, but physical robot software requires outputs that are structured, machine-readable, and easy to validate. The central problem was therefore not only language generation, but reliable translation from user intent into a constrained robot-assistant action schema.</p>
+          <p>The model was designed to propose high-level actions rather than directly control motors, servos, or joint trajectories. This keeps language understanding separate from deterministic safety and execution logic.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section project-detail-soft-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Training Strategy</p>
+          <h2>Base pre-training followed by supervised tool-calling adaptation</h2>
+        </div>
+        <div class="case-study-steps">
+          <article><span>01</span><div><h3>Base model pre-training</h3><p>A custom 1B-parameter LLaMA-style model was trained as a general base language model before robot-specific adaptation.</p></div></article>
+          <article><span>02</span><div><h3>Robot-assistant dataset</h3><p>Training examples paired user requests with strict JSON outputs covering chat, clarification, refusal, and tool calls.</p></div></article>
+          <article><span>03</span><div><h3>Supervised fine-tuning</h3><p>A LoRA adapter was trained to specialise the base model for structured robot tool-calling behaviour.</p></div></article>
+          <article><span>04</span><div><h3>Inference integration</h3><p>The base model and adapter are loaded together and used behind an external validation layer in the humanoid robot pipeline.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Output Contract</p>
+          <h2>A fixed four-field JSON schema</h2>
+        </div>
+        <div>
+          <article class="oax-code-card case-study-code-card">
+            <div class="oax-code-heading"><span>Required response schema</span><small>JSON</small></div>
+            <pre><code>{
+  <span class="json-key">"type"</span>: <span class="json-string">"tool_call"</span>,
+  <span class="json-key">"response"</span>: <span class="json-string">"short natural-language explanation"</span>,
+  <span class="json-key">"tool"</span>: <span class="json-string">"tool_name"</span>,
+  <span class="json-key">"arguments"</span>: {}
+}</code></pre>
+          </article>
+          <div class="case-study-inline-definitions">
+            <p><strong>chat</strong> — a normal response without tool execution.</p>
+            <p><strong>tool_call</strong> — a request to invoke a supported robot tool.</p>
+            <p><strong>clarify</strong> — asks for missing or ambiguous information.</p>
+            <p><strong>refuse</strong> — rejects unsupported or unsafe requests.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section project-detail-soft-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Supported Actions</p>
+          <h2>A deliberately compact tool vocabulary</h2>
+        </div>
+        <div class="case-study-prose case-study-prose-wide">
+          <p>The fine-tuning data focuses on six high-level robot-assistant actions:</p>
+          <div class="technical-token-list" aria-label="Supported robot tools">
+            <code>get_visible_objects</code>
+            <code>get_robot_status</code>
+            <code>search_object</code>
+            <code>pick_object</code>
+            <code>place_object</code>
+            <code>stop</code>
+          </div>
+          <p>Keeping the action set compact reduces ambiguity and makes downstream validation easier. New tools can be added later by extending the training data, schema rules, and controller logic together.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Prompt Format</p>
+          <h2>Role tags define the model interaction</h2>
+        </div>
+        <div>
+          <article class="oax-code-card case-study-code-card">
+            <div class="oax-code-heading"><span>Training and inference prompt</span><small>TEXT</small></div>
+            <pre><code>&lt;|system|&gt;
+You are OAX, a humanoid robot assistant.
+Always return valid JSON with exactly:
+type, response, tool, arguments.
+
+&lt;|user|&gt;
+Find the cup.
+
+&lt;|assistant|&gt;
+{"type":"tool_call","response":"Searching for the cup.","tool":"search_object","arguments":{"object":"cup"}}</code></pre>
+          </article>
+          <p class="case-study-note">During inference, the prompt ends with <code>&lt;|assistant|&gt;</code> so the model generates the next structured response.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section project-detail-soft-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Model Packaging</p>
+          <h2>Base weights and LoRA adapter remain separate</h2>
+        </div>
+        <div class="project-detail-prose case-study-prose">
+          <p>The repository stores the pre-trained base model and the supervised fine-tuning adapter in separate folders:</p>
+          <pre class="plain-technical-block"><code>base_model/
+lora_adapter/</code></pre>
+          <p>This structure preserves the original base model while allowing the robot-specific behaviour to remain modular, lightweight, and replaceable.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Safety Architecture</p>
+          <h2>Model output never directly changes robot state</h2>
+        </div>
+        <div>
+          <div class="pipeline-list oax-pipeline case-study-pipeline" aria-label="OAX model execution pipeline">
+            <span>User Command</span><b>→</b><span>LLM JSON</span><b>→</b><span>JSON Parsing</span><b>→</b><span>Planner / Controller</span><b>→</b><span>Repair or Reject</span><b>→</b><span>Tool Execution</span>
+          </div>
+          <p class="case-study-note">The model acts as a high-level reasoning component. Deterministic software checks the tool name, arguments, current state, and action validity before execution.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section project-detail-soft-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Limitations</p>
+          <h2>Experimental model behaviour still requires external control</h2>
+        </div>
+        <div class="case-study-findings">
+          <article><h3>Premature tool calls</h3><p>The model may occasionally request an action before all required state information is available.</p></article>
+          <article><h3>Argument inconsistency</h3><p>Object or destination names may need normalisation or repair before execution.</p></article>
+          <article><h3>No direct low-level control</h3><p>The model is not suitable for direct motor, servo, trajectory, or safety-critical control.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container project-detail-cta">
+        <div>
+          <p class="project-detail-section-label">Model Link</p>
+          <h2>Review the model card and files</h2>
+        </div>
+        <div class="project-detail-actions">
+          <a class="button button-primary" href="https://huggingface.co/orhanaydinn/OAX-1B-Humanoid" target="_blank" rel="noopener noreferrer">View on Hugging Face <span class="button-icon">↗</span></a>
+          <a class="button button-secondary" href="../../projects.html">Back to Projects <span class="button-icon">←</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© 2026 Orhan Aydin. Built for engineering, AI, and robotics.</footer>
+</body>
+</html>

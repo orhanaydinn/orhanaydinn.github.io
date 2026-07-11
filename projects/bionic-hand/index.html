@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bionic Hand Prototype | Orhan Aydin</title>
+<meta content="A low-cost bionic hand prototype with servo-driven actuation, 3D-printed mechanics, Arduino control and homemade flex sensors." name="description"/>
+<link href="../../style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<header class="site-header">
+<nav class="navbar container">
+<a class="logo" href="../../index.html"><span class="logo-mark">O</span><span>Orhan Aydin</span></a>
+<div class="nav-links">
+<a class="nav-link" href="../../about.html">About</a>
+<a class="nav-link active" href="../../projects.html">Projects</a>
+<a class="nav-link" href="../../index.html#certificates">Certificates</a>
+<a class="nav-link" href="../../index.html#experience">Experience</a>
+<a class="nav-link" href="../../index.html#contact">Contact</a>
+<a class="nav-button" href="../../assets/Orhan-Aydin-CV.pdf" rel="noopener noreferrer" target="_blank">Download CV <span class="button-icon">↓</span></a>
+</div>
+</nav>
+</header>
+<main class="project-detail-page bionic-hand-detail-page">
+<section class="project-detail-hero section">
+<div class="container project-detail-hero-grid">
+<div class="project-detail-hero-copy">
+<a class="project-back-link" href="../../projects.html">← Back to Projects</a>
+<div class="project-detail-kicker-row">
+<span class="project-detail-kicker">Robotics · Embedded Systems</span>
+<span class="project-year-badge">2021</span>
+</div>
+<h1>Bionic Hand Prototype</h1>
+<p class="project-detail-lead">A low-cost mechatronics prototype combining a 3D-printed hand and forearm, servo-driven finger actuation, Arduino control and an experimental glove-input concept based on homemade flex sensors.</p>
+<div class="project-detail-actions">
+<a class="button button-primary" href="https://github.com/orhanaydinn/bionic-hand-prototype/tree/main" rel="noopener noreferrer" target="_blank">View GitHub <span class="button-icon">↗</span></a>
+</div>
+<div class="tag-list project-detail-tags">
+<span>Arduino</span><span>ESP32</span><span>Servo Control</span><span>3D Printing</span><span>Homemade Flex Sensors</span><span>Prototyping</span>
+</div>
+</div>
+<div class="project-detail-hero-media bionic-hero-media">
+<video aria-label="Bionic hand prototype test demonstration" autoplay="" loop="" muted="" playsinline="" poster="assets/bionic-hand-demo-2-poster.jpg" preload="metadata">
+<source src="assets/bionic-hand-demo-2.mp4" type="video/mp4"/>
+            Your browser does not support the video tag.
+          </video>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Project Brief</p>
+<h2>A physical prototype built around low-cost sensing and actuation</h2>
+</div>
+<div class="project-detail-prose case-study-prose">
+<p>The project explored how a glove-controlled input system could drive a multi-joint robotic hand. The mechanical structure, servo actuation, embedded control and experimental sensing approach were developed as one integrated prototype.</p>
+<p>The surviving public archive contains the physical prototype, demonstration videos, a controller sketch and the project media. It should be read as a hands-on mechatronics proof of concept rather than a finished assistive device.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container">
+<div class="project-detail-heading">
+<p class="project-detail-section-label">Control Concept</p>
+<h2>From finger motion to robotic actuation</h2>
+<p>The central idea was to measure bending on a wearable glove, map the sensor response to motor commands and reproduce the gesture through the bionic hand.</p>
+</div>
+<figure class="project-detail-figure bionic-workflow-figure">
+<img alt="Workflow diagram showing glove motion, homemade flex sensors, controller processing and servo-driven bionic hand actuation" loading="lazy" src="assets/bionic-hand-workflow-diagram.png"/>
+<figcaption>Gesture-control workflow and homemade flex-sensor concept.</figcaption>
+</figure>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Homemade Sensor</p>
+<h2>Conductive wire insulated with anti-static paper</h2>
+</div>
+<div class="project-detail-prose case-study-prose">
+<p>Instead of purchasing commercial flex sensors, the sensing strips were built manually using conductive wire and anti-static paper insulation. The strips were mounted on a glove so that finger bending produced a changing electrical response.</p>
+<p>This was an experimental, low-cost sensing method. The aim was not calibrated measurement accuracy, but enough repeatable response to test glove-driven robotic finger control.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Mechanical Design</p>
+<h2>3D-printed forearm, articulated hand and tendon-like drive</h2>
+</div>
+<div class="bionic-media-stack">
+<div class="bionic-two-column-media">
+<figure class="project-detail-figure">
+<img alt="Top view of the bionic hand prototype" loading="lazy" src="assets/bionic-hand-top-view.jpg"/>
+<figcaption>Top view of the assembled mechanism.</figcaption>
+</figure>
+<figure class="project-detail-figure">
+<img alt="Side view of the bionic hand prototype" loading="lazy" src="assets/bionic-hand-side-view.jpg"/>
+<figcaption>Side view showing the forearm and elbow structure.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Actuation</p>
+<h2>Servo-driven fingers, wrist and elbow</h2>
+</div>
+<div class="case-study-findings">
+<article><h3>Finger motion</h3><p>Servos wind and release strings connected to the finger joints, creating tendon-like bending through cable tension.</p></article>
+<article><h3>Forearm mechanism</h3><p>The prototype includes articulated finger motion together with wrist and elbow movement.</p></article>
+<article><h3>Prototype hardware</h3><p>The system used multiple servos, bearings and a 3D-printed PLA structure developed through iterative physical assembly.</p></article>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container">
+<div class="project-detail-heading">
+<p class="project-detail-section-label">Physical Tests</p>
+<h2>Prototype demonstrations</h2>
+<p>Both videos are embedded without audio and play silently to keep the portfolio experience unobtrusive.</p>
+</div>
+<div class="bionic-demo-grid">
+<article class="bionic-demo-card">
+<div class="bionic-demo-media">
+<video aria-label="Bionic hand electronics and movement test" autoplay="" loop="" muted="" playsinline="" poster="assets/bionic-hand-demo-1-poster.jpg" preload="metadata">
+<source src="assets/bionic-hand-demo-1.mp4" type="video/mp4"/>
+                Your browser does not support the video tag.
+              </video>
+</div>
+<div class="bionic-demo-copy"><h3>Actuator and electronics test</h3><p>Physical setup showing the controller, wiring, glove and robotic hand during motion testing.</p></div>
+</article>
+<article class="bionic-demo-card">
+<div class="bionic-demo-media">
+<video aria-label="Bionic hand glove-control demonstration" autoplay="" loop="" muted="" playsinline="" poster="assets/bionic-hand-demo-2-poster.jpg" preload="metadata">
+<source src="assets/bionic-hand-demo-2.mp4" type="video/mp4"/>
+                Your browser does not support the video tag.
+              </video>
+</div>
+<div class="bionic-demo-copy"><h3>Gesture-input demonstration</h3><p>Prototype test illustrating the relationship between glove movement and robotic hand actuation.</p></div>
+</article>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Software</p>
+<h2>Available Arduino motion-test code</h2>
+</div>
+<div class="project-detail-prose case-study-prose">
+<p>The archived Arduino sketch defines independent motion routines for the index finger, middle finger, ring finger, wrist and elbow. These routines are executed sequentially with timed delays.</p>
+<p>The surviving code therefore documents actuator-level testing rather than a complete final glove-control pipeline. It is included as evidence of the embedded-control stage used during prototype development.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Limitations</p>
+<h2>An experimental prototype, not a medical device</h2>
+</div>
+<div class="project-detail-prose case-study-prose">
+<p>The public archive is incomplete and does not include the full original development history. The homemade sensing approach was not calibrated to medical or industrial standards.</p>
+<p>The project demonstrates mechanical design, prototyping, embedded actuation and low-cost sensor experimentation. It should not be interpreted as a clinically validated prosthetic system.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container project-detail-cta">
+<div>
+<p class="project-detail-section-label">Project Link</p>
+<h2>Review the code, media and technical summary</h2>
+</div>
+<div class="project-detail-actions">
+<a class="button button-primary" href="https://github.com/orhanaydinn/bionic-hand-prototype/tree/main" rel="noopener noreferrer" target="_blank">View GitHub <span class="button-icon">↗</span></a>
+<a class="button button-secondary" href="../../projects.html">Back to Projects <span class="button-icon">←</span></a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">© 2026 Orhan Aydin. Built for engineering, AI, and robotics.</footer>
+</body>
+</html>

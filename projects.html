@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects | Orhan Aydin</title>
+<meta content="Selected projects by Orhan Aydin across humanoid robotics, robot learning, custom large language models, mechanical design, embedded systems, and robotic control." name="description"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<header class="site-header">
+<nav class="navbar container">
+<a class="logo" href="index.html">
+<span class="logo-mark">O</span>
+<span>Orhan Aydin</span>
+</a>
+<div class="nav-links">
+<a class="nav-link" href="about.html">About</a>
+<a class="nav-link active" href="projects.html">Projects</a>
+<a class="nav-link" href="index.html#certificates">Certificates</a>
+<a class="nav-link" href="index.html#experience">Experience</a>
+<a class="nav-link" href="index.html#contact">Contact</a>
+<a class="nav-button" href="assets/Orhan-Aydin-CV.pdf" target="_blank">
+          Download CV
+          <span class="button-icon">↓</span>
+</a>
+</div>
+</nav>
+</header>
+<main class="projects-page-main">
+<section class="projects-gallery-section">
+<div class="container">
+<div class="projects-page-heading">
+<h1>Projects</h1>
+<p>
+            Robotics, embodied AI, robot learning, large language models,
+            mechanical design, and end-to-end intelligent systems.
+          </p>
+<div aria-label="Filter projects by category" class="project-filter" role="group">
+<button aria-pressed="true" class="project-filter-button active" data-filter="all" type="button">All</button>
+<button aria-pressed="false" class="project-filter-button" data-filter="robotics" type="button">Robotics</button>
+<button aria-pressed="false" class="project-filter-button" data-filter="ai-combined" type="button">AI &amp; Machine Learning &amp; Gen AI</button>
+<button aria-pressed="false" class="project-filter-button" data-filter="mechanical" type="button">Mechanical</button>
+<button aria-pressed="false" class="project-filter-button" data-filter="embedded" type="button">Embedded</button>
+<button aria-pressed="false" class="project-filter-button" data-filter="automation" type="button">Automation</button>
+</div>
+</div>
+<div class="projects-page-grid">
+<!-- 1. HUMANOID ROBOT -->
+<!-- 2. MUJOCO ROBOT LEARNING -->
+<!-- 3. CUSTOM LLM -->
+<!-- 4. RAG ASSISTANT -->
+<!-- 5. SCARA ROBOT -->
+<!-- 6. ROV -->
+<!-- 7. PERSEVERANCE ROVER -->
+<!-- 8. C-130 UAV -->
+<!-- 9. INSPECTION LINE -->
+<!-- 10. RADIAL ENGINE -->
+<!-- 11. BIONIC HAND -->
+<!-- 12. 5-AXIS ARM AND CONVEYOR -->
+<!-- 14. BRAIN MRI CLASSIFICATION -->
+<article class="project-card project-page-card" data-category="robotics ai genai mechanical embedded" data-year="2026">
+<div class="project-page-media">
+<video aria-label="LLM-enabled humanoid robot performing vision-guided manipulation" autoplay="" class="project-page-visual project-page-visual-contain" loop="" muted="" playsinline="" poster="assets/humanoid-demo-poster.jpg" preload="metadata"><source src="assets/humanoid-demo.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
+</div>
+<div class="project-page-body">
+<div class="project-card-topline"><div class="project-meta">Robotics · Gen AI</div><span class="project-year-badge">2026</span></div>
+<h2>LLM-Enabled Humanoid Robot</h2>
+<p>Designed and developed a custom fixed-base humanoid robot combining mechanical design, embedded control, computer vision, inverse kinematics, voice interaction, and LLM-based task execution.</p>
+<div class="tag-list"><span>Robotics</span><span>OpenCV</span><span>Arduino</span><span>LLM</span><span>IK</span><span>3D Printing</span></div>
+<div class="project-links project-page-links"><a href="projects/humanoid/">Details</a><a href="https://github.com/orhanaydinn/oax_humanoid_robot" rel="noopener noreferrer" target="_blank">GitHub</a></div>
+</div>
+</article><article class="project-card project-page-card" data-category="robotics ai" data-year="2026">
+<div class="project-page-media">
+<video aria-label="MuJoCo simulation of a 5-DOF humanoid robotic arm" autoplay="" class="project-page-visual" loop="" muted="" playsinline="" poster="assets/mujoco-demo-poster.jpg" preload="metadata"><source src="assets/mujoco-demo.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
+</div>
+<div class="project-page-body">
+<div class="project-card-topline"><div class="project-meta">Robotics · AI</div><span class="project-year-badge">2026</span></div>
+<h2>5-DOF Arm Manipulation with MuJoCo</h2>
+<p>Developed a MuJoCo-based manipulation pipeline for ready-to-pregrasp and pregrasp-to-final grasp tasks using multi-height datasets, Behaviour Cloning, and Reinforcement Learning.</p>
+<div class="tag-list"><span>MuJoCo</span><span>Behaviour Cloning</span><span>RL</span><span>IK</span><span>Manipulation</span></div>
+<div class="project-availability-note">Work in progress — BC training, multi-height data collection and RL fine-tuning are still under development.</div>
+</div>
+</article><article class="project-card project-page-card" data-category="ai genai" data-year="2026">
+<div class="project-page-media">
+<img alt="OAX-1B humanoid LLM robot tool-calling pipeline" class="project-page-visual" loading="lazy" src="assets/oax_1b_llm.png"/>
+</div>
+<div class="project-page-body">
+<div class="project-card-topline"><div class="project-meta">Gen AI</div><span class="project-year-badge">2026</span></div>
+<h2>Custom 1B LLM for Robot Tool Calling</h2>
+<p>Pre-trained a custom 1B-parameter LLaMA-style model from scratch and fine-tuned it to generate structured JSON robot tool calls for natural-language command execution.</p>
+<div class="tag-list"><span>LLM</span><span>PyTorch</span><span>Transformers</span><span>Hugging Face</span><span>SFT</span></div>
+<div class="project-links project-page-links"><a href="projects/oax-1b/">Details</a><a href="https://huggingface.co/orhanaydinn/OAX-1B-Humanoid" rel="noopener noreferrer" target="_blank">Hugging Face</a></div>
+</div>
+</article><article class="project-card project-page-card" data-category="robotics ai genai" data-year="2026">
+<div class="project-page-media">
+<img alt="Humanoid Agent Harness architecture connecting OAX-1B, a deterministic Controller and a virtual world" class="project-page-visual" loading="lazy" src="assets/humanoid-agent-harness.png"/>
+</div>
+<div class="project-page-body">
+<div class="project-card-topline">
+<div class="project-meta">AI · Robotics · LLM Agents</div>
+<span class="project-year-badge">2026</span>
+</div>
+<h2>Humanoid Agent Harness</h2>
+<p>
+      Built a virtual agent environment that connects the hosted OAX-1B model
+      to structured observations, JSON tool calls and deterministic Controller
+      validation for goal-directed find, pick and place tasks.
+    </p>
+<div class="tag-list">
+<span>LLM Agents</span>
+<span>OAX-1B</span>
+<span>Tool Calling</span>
+<span>Python</span>
+<span>Hugging Face</span>
+<span>Controller Validation</span>
+</div>
+<div class="project-links project-page-links">
+<a href="projects/humanoid-agent-harness/">Details</a>
+<a href="https://github.com/orhanaydinn/humanoid_agent_harness" rel="noopener noreferrer" target="_blank">GitHub</a>
+</div>
+</div>
+</article><article class="project-card project-page-card" data-category="ai genai" data-year="2025">
+<div class="project-page-media">
+<video aria-label="AI-powered conversational assistant with retrieval augmented generation" autoplay="" class="project-page-visual" loop="" muted="" playsinline="" poster="assets/rag-assistant-poster.jpg" preload="metadata"><source src="assets/rag-assistant.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
+<div class="project-page-placeholder project-placeholder-ai" hidden=""><strong>RAG Assistant</strong><span>rag-assistant.mp4</span></div>
+</div>
+<div class="project-page-body">
+<div class="project-card-topline"><div class="project-meta">Gen AI</div><span class="project-year-badge">2025</span></div>
+<h2>AI-Powered Conversational Assistant</h2>
+<p>Built a Streamlit-based assistant around a 7B-parameter language model, combining retrieval-augmented generation, OCR, PDF parsing, and web-search integration for document-grounded conversations.</p>
+<div class="tag-list"><span>RAG</span><span>LLM</span><span>Streamlit</span><span>OCR</span><span>PDF Parsing</span><span>Python</span></div>
+<div class="project-links project-page-links"><a href="projects/rag-assistant/">Details</a><a href="https://github.com/orhanaydinn/qa_assistant" rel="noopener noreferrer" target="_blank">GitHub</a><a href="https://orhanaydin-ai-asistant-v1.streamlit.app/" rel="noopener noreferrer" target="_blank">Streamlit Demo</a></div>
+</div>
+</article><article class="project-card project-page-card" data-category="ai" data-year="2025">
+<div class="project-page-media">
+<video aria-label="Brain tumor and Alzheimer MRI classification project" autoplay="" class="project-page-visual" loop="" muted="" playsinline="" poster="assets/brain-mri-poster.jpg" preload="metadata"><source src="assets/brain-mri.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
+<div class="project-page-placeholder project-placeholder-ai" hidden=""><strong>Brain MRI AI</strong><span>brain-mri.mp4</span></div>
+</div>
+<div class="project-page-body">
+<div class="project-card-topline"><div class="project-meta">AI</div><span class="project-year-badge">2025</span></div>
+<h2>MRI-Based Brain Tumor &amp; Alzheimer Classification</h2>
+<p>Developed a deep-learning pipeline for classifying brain tumors and Alzheimer’s stages from MRI images, comparing a baseline CNN with VGG16, EfficientNetB0, ResNet50, and DenseNet121.</p>
+<div class="tag-list"><span>TensorFlow</span><span>Keras</span><span>CNN</span><span>Transfer Learning</span><span>OpenCV</span><span>MRI</span></div>
+<div class="project-links project-page-links"><a href="projects/brain-mri/">Details</a><a href="https://github.com/orhanaydinn/brainTumor_Alzheimer_Prediction" rel="noopener noreferrer" target="_blank">GitHub</a></div>
+</div>
+</article><article class="project-card project-page-card" data-category="mechanical robotics embedded" data-year="2022">
+<div class="project-page-media">
+<video aria-label="Custom SCARA robot design, manufacturing and control demonstration" autoplay="" class="scara-static-fit project-page-scara-video project-page-visual" loop="" muted="" playsinline="" poster="assets/scara_robot-poster.jpg" preload="metadata"><source src="assets/scara_robot.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
+</div>
+<div class="project-page-body">
+<div class="project-card-topline"><div class="project-meta">Robotics · Mechanical</div><span class="project-year-badge">2022</span></div>
+<h2>SCARA Robot Design, Manufacturing &amp; Control</h2>
+<p>Completed as my BSc dissertation, this project covered the full development of a custom SCARA robot, including SolidWorks design, 3D-printed manufacturing, Arduino control, kinematics and a Processing interface.</p>
+<div class="tag-list"><span>SolidWorks</span><span>Arduino</span><span>CNC Shield</span><span>3D Printing</span><span>Processing</span></div>
+<div class="project-links project-page-links"><a href="projects/scara/">Details</a><a href="https://github.com/orhanaydinn/scara-robot-design-and-control" rel="noopener noreferrer" target="_blank">GitHub</a></div>
+</div>
+</article><article class="project-card project-page-card" data-category="mechanical robotics automation" data-year="2022">
+<div class="project-page-media">
+<video aria-label="Automated inspection line with Cartesian robot demonstration" autoplay="" class="project-page-visual" loop="" muted="" playsinline="" poster="assets/inspection-line-poster.jpg" preload="metadata">
+<source src="assets/inspection-line.mp4" type="video/mp4"/>
+                Your browser does not support the video tag.
+              </video>
+<div class="project-page-placeholder project-placeholder-automation" hidden=""><strong>Inspection Line</strong><span>inspection-line.mp4</span></div>
+</div>
+<div class="project-page-body">
+<div class="project-card-topline"><div class="project-meta">Automation · Mechanical</div><span class="project-year-badge">2022</span></div>
+<h2>Automated Inspection Line with Cartesian Robot</h2>
+<p>Developed the mechanical layout of an automated inspection line incorporating Cartesian robotic handling, conveyor-based material flow, and production-oriented machine integration.</p>
+<div class="tag-list"><span>Automation</span><span>Cartesian Robot</span><span>CAD</span><span>Conveyor Systems</span><span>Machine Design</span></div>
+<div class="project-links project-page-links"><a href="projects/inspection-line/">Details</a><a href="https://github.com/orhanaydinn/automated-inspection-line-cartesian-robot" rel="noopener noreferrer" target="_blank">GitHub</a><a href="https://grabcad.com/library/inspection-line-with-cartesian-robot-1" rel="noopener noreferrer" target="_blank">GrabCAD</a></div>
+</div>
+</article><article class="project-card project-page-card" data-category="robotics mechanical embedded" data-year="2022">
+<div class="project-page-media">
+<img alt="Perseverance-inspired rover prototype" class="project-page-visual" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" src="assets/perseverance-rover.jpg"/>
+<div class="project-page-placeholder project-placeholder-robotics" hidden=""><strong>Rover</strong><span>perseverance-rover.jpg</span></div>
+</div>
+<div class="project-page-body">
+<div class="project-card-topline"><div class="project-meta">Robotics · Mechanical Design</div><span class="project-year-badge">2022</span></div>
+<h2>Perseverance Rover Prototype</h2>
+<p>Recreated a reduced-scale Perseverance-inspired rover prototype based on publicly available project references, focusing on CAD adaptation, 3D-printable components, mechanical assembly, and prototype integration.</p>
+<div class="tag-list"><span>SolidWorks</span><span>CAD</span><span>3D Printing</span><span>Mechanical Design</span><span>Prototyping</span></div>
+<div class="project-availability-note">Technical files and source data are not publicly available.</div>
+</div>
+</article><article class="project-card project-page-card" data-category="robotics mechanical embedded" data-year="2021">
+<div class="bionic-card-media project-page-media">
+<img alt="Bionic robotic hand prototype" class="bionic-card-visual project-page-visual project-page-visual-fit" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" src="assets/bionic-hand.jpg"/>
+<div class="project-page-placeholder project-placeholder-robotics" hidden=""><strong>Bionic Hand</strong><span>bionic-hand.jpg</span></div>
+</div>
+<div class="project-page-body">
+<div class="project-card-topline"><div class="project-meta">Robotics · Embedded</div><span class="project-year-badge">2021</span></div>
+<h2>Bionic Hand Prototype</h2>
+<p>Developed a 3D-printed bionic hand with servo-driven finger, wrist and elbow motion, including an experimental glove-input concept built with homemade flex sensors using conductive wire and anti-static paper.</p>
+<div class="tag-list"><span>Arduino</span><span>ESP32</span><span>Servo Control</span><span>3D Printing</span><span>Homemade Sensors</span></div>
+<div class="project-links project-page-links"><a href="projects/bionic-hand/">Details</a><a href="https://github.com/orhanaydinn/bionic-hand-prototype/tree/main" rel="noopener noreferrer" target="_blank">GitHub</a></div>
+</div>
+</article><article class="project-card project-page-card" data-category="mechanical" data-year="2020">
+<div class="project-page-media">
+<img alt="C-130 inspired UAV CAD model" class="project-page-visual" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" src="assets/c130-uav.jpg"/>
+<div class="project-page-placeholder project-placeholder-mechanical" hidden=""><strong>C-130 UAV</strong><span>c130-uav.jpg</span></div>
+</div>
+<div class="project-page-body">
+<div class="project-card-topline"><div class="project-meta">Mechanical</div><span class="project-year-badge">2020</span></div>
+<h2>C-130 UAV Concept Design</h2>
+<p>Created a C-130-inspired unmanned aircraft concept in SolidWorks, evaluated its aerodynamic form through flow simulation, and produced a reduced-scale physical prototype using 3D printing.</p>
+<div class="tag-list"><span>SolidWorks</span><span>Flow Simulation</span><span>UAV Design</span><span>3D Printing</span><span>Aerodynamics</span></div>
+<div class="project-links project-page-links"><a href="https://grabcad.com/library/model-c-130-1" rel="noopener noreferrer" target="_blank">GrabCAD</a></div>
+</div>
+</article><article class="project-card project-page-card" data-category="mechanical" data-year="2020">
+<div class="project-page-media">
+<img alt="Radial engine mechanical CAD assembly" class="project-page-visual" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" src="assets/radial-engine.jpeg"/>
+<div class="project-page-placeholder project-placeholder-mechanical" hidden=""><strong>Radial Engine</strong><span>radial-engine.jpeg</span></div>
+</div>
+<div class="project-page-body">
+<div class="project-card-topline"><div class="project-meta">Mechanical</div><span class="project-year-badge">2020</span></div>
+<h2>Radial Engine Mechanical Assembly</h2>
+<p>Created a detailed radial-engine CAD assembly to study multi-component mechanical architecture, circular cylinder arrangement, part relationships, and assembly-level design practice.</p>
+<div class="tag-list"><span>SolidWorks</span><span>Mechanical</span><span>Assembly</span><span>CAD Modelling</span><span>Machine Elements</span></div>
+<div class="project-links project-page-links"><a href="https://grabcad.com/library/radial-engine-446" rel="noopener noreferrer" target="_blank">GrabCAD</a></div>
+</div>
+</article><article class="project-card project-page-card" data-category="robotics mechanical embedded" data-year="2019">
+<div class="project-page-media">
+<img alt="Remotely operated underwater vehicle CAD design" class="project-page-visual" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" src="assets/rov.JPG"/>
+<div class="project-page-placeholder project-placeholder-robotics" hidden=""><strong>ROV</strong><span>Add rov.png</span></div>
+</div>
+<div class="project-page-body">
+<div class="project-card-topline"><div class="project-meta">Robotics · Mechanical</div><span class="project-year-badge">2019</span></div>
+<h2>Remotely Operated Underwater Vehicle</h2>
+<p>Designed and built an underwater remotely operated vehicle with a custom mechanical structure, camera system, embedded control, and robotic manipulator. The project achieved second place at the national Teknofest competition.</p>
+<div class="tag-list"><span>SolidWorks</span><span>Flow Simulation</span><span>Embedded</span><span>Robotic Arm</span><span>ROV</span></div>
+<div class="project-links project-page-links"><a href="https://grabcad.com/library/rov-92" rel="noopener noreferrer" target="_blank">GrabCAD</a></div>
+</div>
+</article><article class="project-card project-page-card" data-category="robotics mechanical embedded automation" data-year="2018">
+<div class="project-page-media">
+<video aria-label="Five-axis robot arm and conveyor prototype demonstration" autoplay="" class="project-page-visual" loop="" muted="" playsinline="" poster="assets/five-axis-arm-poster.jpg" preload="metadata">
+<source src="assets/five-axis-arm.mp4" type="video/mp4"/>
+                Your browser does not support the video tag.
+              </video>
+<div class="project-page-placeholder project-placeholder-robotics" hidden=""><strong>5-Axis Arm</strong><span>five-axis-arm.mp4</span></div>
+</div>
+<div class="project-page-body">
+<div class="project-card-topline"><div class="project-meta">Robotics · Automation</div><span class="project-year-badge">2018</span></div>
+<h2>5-Axis Robotic Arm &amp; Conveyor System</h2>
+<p>Designed and manufactured a five-axis robotic arm and conveyor prototype using SolidWorks and 3D-printed components. The available archive is limited to a physical demonstration video of the assembled system.</p>
+<div class="tag-list"><span>5-DOF Robot</span><span>Conveyor</span><span>SolidWorks</span><span>3D Printing</span><span>Embedded Control</span></div>
+<div class="project-links project-page-links"><a href="assets/five-axis-arm.mp4" rel="noopener noreferrer" target="_blank">Watch Demo</a><span class="project-link-muted">Project documentation and source files are not publicly available.</span></div>
+</div>
+</article></div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<p>© 2026 Orhan Aydin. Built with HTML, CSS and GitHub Pages.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

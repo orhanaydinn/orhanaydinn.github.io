@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI-Powered Multimodal Conversational Assistant | Orhan Aydin</title>
+<meta content="Technical case study of a Streamlit-based multimodal assistant combining RAG, OCR, PDF parsing, web search, FAISS, Zephyr-7B, and image generation." name="description"/>
+<link href="../../style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<header class="site-header">
+<nav class="navbar container">
+<a class="logo" href="../../index.html"><span class="logo-mark">O</span><span>Orhan Aydin</span></a>
+<div class="nav-links">
+<a class="nav-link" href="../../about.html">About</a>
+<a class="nav-link active" href="../../projects.html">Projects</a>
+<a class="nav-link" href="../../index.html#certificates">Certificates</a>
+<a class="nav-link" href="../../index.html#experience">Experience</a>
+<a class="nav-link" href="../../index.html#contact">Contact</a>
+<a class="nav-button" href="../../assets/Orhan-Aydin-CV.pdf" rel="noopener noreferrer" target="_blank">Download CV <span class="button-icon">↓</span></a>
+</div>
+</nav>
+</header>
+<main class="project-detail-page rag-case-study-page">
+<section class="project-detail-hero section">
+<div class="container project-detail-hero-grid">
+<div class="project-detail-hero-copy">
+<a class="project-back-link" href="../../projects.html">← Back to Projects</a>
+<div class="project-detail-kicker-row">
+<span class="project-detail-kicker">Generative AI · Multimodal RAG</span>
+<span class="project-year-badge">2025</span>
+</div>
+<h1>AI-Powered Multimodal Conversational Assistant</h1>
+<p class="project-detail-lead">A modular Streamlit application that combines document retrieval, OCR, PDF parsing, web search, a 7B language model, and optional image generation in one conversational workflow.</p>
+<div class="project-detail-actions">
+<a class="button button-primary" href="https://github.com/orhanaydinn/qa_assistant" rel="noopener noreferrer" target="_blank">View GitHub <span class="button-icon">↗</span></a>
+<a class="button button-secondary" href="https://orhanaydin-ai-asistant-v1.streamlit.app/" rel="noopener noreferrer" target="_blank">Open Streamlit Demo <span class="button-icon">↗</span></a>
+</div>
+<div class="tag-list project-detail-tags">
+<span>RAG</span><span>Streamlit</span><span>FAISS</span><span>EasyOCR</span><span>PDF Parsing</span><span>Zephyr-7B</span><span>Stable Diffusion XL</span>
+</div>
+</div>
+<div class="project-detail-hero-media rag-detail-hero-media case-study-hero-media">
+<video aria-label="Multimodal RAG assistant running in Streamlit" autoplay="" loop="" muted="" playsinline="" poster="../../assets/rag-assistant-poster.jpg" preload="metadata"><source src="../../assets/rag-assistant.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Problem</p>
+<h2>Useful answers often depend on information outside the model</h2>
+</div>
+<div class="project-detail-prose case-study-prose">
+<p>A standalone language model cannot reliably answer questions about a user’s uploaded documents, text embedded in images, or newly retrieved web content. The project addresses this by collecting multiple input types and converting them into context that can be retrieved before response generation.</p>
+<p>The main engineering objective was integration: combining document processing, semantic retrieval, multimodal input handling, response generation, and a practical web interface without tightly coupling every component.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">System Workflow</p>
+<h2>From raw input to retrieved context and final response</h2>
+</div>
+<div class="case-study-steps">
+<article><span>01</span><div><h3>Input collection</h3><p>The Streamlit interface accepts chat questions, PDF files, images, and optional web-search requests.</p></div></article>
+<article><span>02</span><div><h3>Parsing and OCR</h3><p>PDF text is extracted directly, while EasyOCR converts text inside uploaded images into searchable content.</p></div></article>
+<article><span>03</span><div><h3>Embedding and retrieval</h3><p>Sentence-transformer embeddings are indexed with FAISS so the most relevant passages can be selected for each query.</p></div></article>
+<article><span>04</span><div><h3>Response generation</h3><p>The retrieved context is combined with the user prompt and passed to Zephyr-7B to produce the final answer.</p></div></article>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Pipeline</p>
+<h2>A retrieval-first response architecture</h2>
+</div>
+<div>
+<div aria-label="RAG assistant pipeline" class="pipeline-list rag-pipeline-list case-study-pipeline">
+<span>User Query</span><b>→</b><span>PDF / Image / Web</span><b>→</b><span>Parsing + OCR</span><b>→</b><span>Embeddings</span><b>→</b><span>FAISS Retrieval</span><b>→</b><span>Zephyr-7B</span>
+</div>
+<p class="case-study-note">Retrieval does not guarantee factual correctness by itself, but it provides the model with relevant external context instead of relying only on its internal parameters.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Input Types</p>
+<h2>Different sources share one retrieval workflow</h2>
+</div>
+<div class="case-study-findings">
+<article><h3>PDF documents</h3><p>Uploaded files are parsed and converted into text that can be chunked, embedded, and searched.</p></article>
+<article><h3>Images with text</h3><p>EasyOCR extracts text from JPG and PNG inputs before the same retrieval process is applied.</p></article>
+<article><h3>Web-enriched queries</h3><p>External search results can supplement local context when the question requires current or broader information.</p></article>
+<article><h3>Image-generation requests</h3><p>Creative image prompts can be routed to Stable Diffusion XL as a separate generation capability.</p></article>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Application Structure</p>
+<h2>Modules separate interface, retrieval, parsing, and generation</h2>
+</div>
+<div>
+<pre class="plain-technical-block project-tree-block"><code>app/
+├── main_ui.py
+├── main_pipeline.py
+├── main_data.py
+├── faiss_search.py
+├── pdf_parser.py
+├── ocr_utils.py
+├── ocr_faiss.py
+├── image_gen.py
+├── llm_response.py
+└── rag_dataset_qa.py</code></pre>
+<p class="case-study-note">The modular layout allows the vector store, embedding model, OCR component, language model, or interface to be replaced independently.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Technology Choices</p>
+<h2>Practical open-source components for each stage</h2>
+</div>
+<div class="model-comparison-table-wrap">
+<table class="model-comparison-table">
+<thead><tr><th>Component</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td>FAISS</td><td>Vector indexing and semantic retrieval.</td></tr>
+<tr><td>sentence-transformers</td><td>Embedding generation for document and query text.</td></tr>
+<tr><td>EasyOCR + Pillow</td><td>Image loading and text extraction from visual inputs.</td></tr>
+<tr><td>Zephyr-7B</td><td>Context-aware natural-language response generation.</td></tr>
+<tr><td>Streamlit</td><td>Interactive user interface and deployment.</td></tr>
+<tr><td>Stable Diffusion XL</td><td>Optional image generation from text prompts.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Engineering Decisions</p>
+<h2>Why the system was built as a modular prototype</h2>
+</div>
+<div class="project-detail-prose case-study-prose">
+<p>Separating the interface, parsing, retrieval, and generation layers makes experimentation easier. FAISS could later be replaced with a hosted vector database, the embedding model could be upgraded, or the response model could be changed without redesigning the whole application.</p>
+<p>The application also exposes the selected context before answering, which is useful during development because it makes retrieval behaviour easier to inspect.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Limitations</p>
+<h2>Integration is complete; formal evaluation remains future work</h2>
+</div>
+<div class="case-study-findings">
+<article><h3>Retrieval quality</h3><p>No fixed benchmark currently measures whether the retrieved passages are consistently the most relevant ones.</p></article>
+<article><h3>Response grounding</h3><p>The model can still produce unsupported statements, so retrieved context and generated answers should be reviewed critically.</p></article>
+<article><h3>OCR variability</h3><p>Text extraction quality depends on image resolution, contrast, layout, and font characteristics.</p></article>
+<article><h3>Runtime cost</h3><p>Using a 7B model together with OCR, retrieval, and image generation creates significant memory and latency requirements.</p></article>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container project-detail-cta">
+<div>
+<p class="project-detail-section-label">Project Links</p>
+<h2>Review the implementation or try the live application</h2>
+</div>
+<div class="project-detail-actions">
+<a class="button button-primary" href="https://github.com/orhanaydinn/qa_assistant" rel="noopener noreferrer" target="_blank">View GitHub <span class="button-icon">↗</span></a>
+<a class="button button-secondary" href="https://orhanaydin-ai-asistant-v1.streamlit.app/" rel="noopener noreferrer" target="_blank">Open Streamlit Demo <span class="button-icon">↗</span></a>
+<a class="button button-secondary" href="../../projects.html">Back to Projects <span class="button-icon">←</span></a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">© 2026 Orhan Aydin. Built for engineering, AI, and robotics.</footer>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LLM-Enabled Humanoid Robot | Orhan Aydin</title>
+<meta content="An LLM-enabled humanoid robot integrating computer vision, robot-specific tool calling, Planner-Controller validation, inverse kinematics, embedded control, and physical manipulation." name="description"/>
+<link href="../../style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<header class="site-header">
+<nav class="navbar container">
+<a class="logo" href="../../index.html"><span class="logo-mark">O</span><span>Orhan Aydin</span></a>
+<div class="nav-links">
+<a class="nav-link" href="../../about.html">About</a>
+<a class="nav-link active" href="../../projects.html">Projects</a>
+<a class="nav-link" href="../../index.html#certificates">Certificates</a>
+<a class="nav-link" href="../../index.html#experience">Experience</a>
+<a class="nav-link" href="../../index.html#contact">Contact</a>
+<a class="nav-button" href="../../assets/Orhan-Aydin-CV.pdf" rel="noopener noreferrer" target="_blank">Download CV <span class="button-icon">↓</span></a>
+</div>
+</nav>
+</header>
+<main class="project-detail-page">
+<section class="project-detail-hero section">
+<div class="container project-detail-hero-grid">
+<div class="project-detail-hero-copy">
+<a class="project-back-link" href="../../projects.html">← Back to Projects</a>
+<div class="project-detail-kicker-row">
+<span class="project-detail-kicker">Main Project · MSc Thesis</span>
+<span class="project-year-badge">2026</span>
+</div>
+<h1>LLM-Enabled Humanoid Robot</h1>
+<p class="project-detail-lead">A custom fixed-base humanoid robot that combines vision-guided perception, a robot-specific 1B language model, structured JSON tool calling, deterministic safety validation, inverse kinematics, and embedded motion control in one end-to-end physical system.</p>
+<div class="project-detail-actions">
+<a class="button button-primary" href="https://github.com/orhanaydinn/oax_humanoid_robot" rel="noopener noreferrer" target="_blank">View GitHub <span class="button-icon">↗</span></a>
+<a class="button button-secondary" href="https://huggingface.co/orhanaydinn" rel="noopener noreferrer" target="_blank">View OAX-1B <span class="button-icon">↗</span></a>
+</div>
+<div class="tag-list project-detail-tags">
+<span>Robotics</span><span>LLM Tool Calling</span><span>Computer Vision</span><span>OpenCV</span><span>OAK-D Lite</span><span>Inverse Kinematics</span><span>Arduino</span><span>3D Printing</span>
+</div>
+</div>
+<div class="project-detail-hero-media">
+<video aria-label="Humanoid robot locating and attempting to pick a bottle" autoplay="" loop="" muted="" playsinline="" poster="assets/demos/find-and-pick-bottle-poster.jpg" preload="metadata"><source src="assets/demos/find-and-pick-bottle.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container project-detail-intro-grid">
+<div>
+<p class="project-detail-section-label">Project Overview</p>
+<h2>From natural-language commands to validated physical actions</h2>
+</div>
+<div class="project-detail-prose">
+<p>The system allows a user to communicate with the robot through natural-language commands. Camera observations and the current robot state are provided to a fine-tuned language model, which proposes a structured robot action rather than directly controlling motors.</p>
+<p>A deterministic Planner and Controller then validate, repair, reject, or clarify the proposed action before any physical execution. This separation keeps the LLM at the reasoning level while safety-critical motion remains under conventional control.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container">
+<div class="project-detail-heading">
+<p class="project-detail-section-label">System Architecture</p>
+<h2>A modular perception–reasoning–validation–execution pipeline</h2>
+<p>User input, visual perception, robot state, LLM reasoning, action validation, motion planning, and low-level actuator control are separated into clear modules.</p>
+</div>
+<figure class="project-detail-figure project-detail-figure-wide">
+<img alt="Architecture of the LLM-enabled humanoid robot system" loading="lazy" src="assets/system-architecture.png"/>
+<figcaption>The LLM proposes high-level JSON tool calls; deterministic layers decide whether those actions may reach the physical robot.</figcaption>
+</figure>
+<div aria-label="System pipeline" class="pipeline-list">
+<span>User Command</span><b>→</b><span>Vision + Robot State</span><b>→</b><span>OAX-1B</span><b>→</b><span>JSON Tool Call</span><b>→</b><span>Planner</span><b>→</b><span>Controller</span><b>→</b><span>Motion Execution</span>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container">
+<div class="project-detail-heading">
+<p class="project-detail-section-label">Live Demonstrations</p>
+<h2>Three representative interaction flows</h2>
+</div>
+<div class="demo-grid">
+<article class="demo-card"><div class="demo-media"><video aria-label="Robot identifying visible objects" autoplay="" loop="" muted="" playsinline="" poster="assets/demos/what-do-you-see-poster.jpg" preload="metadata"><source src="assets/demos/what-do-you-see.mp4" type="video/mp4"/>Your browser does not support the video tag.</video></div><div class="demo-copy"><span>01</span><h3>What Do You See?</h3><p>The robot detects visible objects and returns an object-level response from the current camera view.</p></div></article>
+<article class="demo-card"><div class="demo-media"><video aria-label="Robot searching for a bottle" autoplay="" loop="" muted="" playsinline="" poster="assets/demos/find-the-bottle-poster.jpg" preload="metadata"><source src="assets/demos/find-the-bottle.mp4" type="video/mp4"/>Your browser does not support the video tag.</video></div><div class="demo-copy"><span>02</span><h3>Find the Bottle</h3><p>The robot receives a target command, searches with active head movement, and centres the detected object.</p></div></article>
+<article class="demo-card"><div class="demo-media"><video aria-label="Robot attempting to pick a bottle" autoplay="" loop="" muted="" playsinline="" poster="assets/demos/find-and-pick-bottle-poster.jpg" preload="metadata"><source src="assets/demos/find-and-pick-bottle.mp4" type="video/mp4"/>Your browser does not support the video tag.</video></div><div class="demo-copy"><span>03</span><h3>Find and Pick</h3><p>The full pipeline detects the target, validates the tool call, plans an arm pose, and attempts a physical grasp.</p></div></article>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container">
+<div class="project-detail-heading"><p class="project-detail-section-label">Mechanical System</p><h2>Custom-designed humanoid hardware</h2><p>The robot was developed from mechanical concept and CAD design through 3D-printed manufacture, electronics integration, calibration, and physical testing.</p></div>
+<div class="project-detail-media-grid">
+<figure class="project-detail-figure project-detail-figure-large"><img alt="Physical humanoid robot prototype" loading="lazy" src="assets/overall-robot-design.png"/><figcaption>Fixed-base upper-body humanoid prototype.</figcaption></figure>
+<figure class="project-detail-figure"><img alt="3D design of humanoid robot" loading="lazy" src="assets/overall-robot-design-3d.png"/><figcaption>CAD design before physical assembly.</figcaption></figure>
+<figure class="project-detail-figure"><img alt="Five degree of freedom robotic arm structure" loading="lazy" src="assets/robotic-arm-structure.png"/><figcaption>5-DOF arm structure for reaching and manipulation.</figcaption></figure>
+<figure class="project-detail-figure"><img alt="Parallel robot gripper" loading="lazy" src="assets/robot-gripper.jpg"/><figcaption>Parallel gripper selected for reliable, lower-complexity control.</figcaption></figure>
+<figure class="project-detail-figure"><img alt="Two degree of freedom pan tilt robot head" loading="lazy" src="assets/pan-tilt-head.png"/><figcaption>2-DOF pan-tilt head for search and object centring.</figcaption></figure>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container project-detail-split">
+<div class="project-detail-sticky-copy"><p class="project-detail-section-label">Perception &amp; Motion</p><h2>Visual observations converted into reachable robot poses</h2><p>Object labels, confidence, depth, and image-centre information are stored as structured state. Spatial mapping and IK/FK then convert target information into candidate arm poses before serial execution.</p></div>
+<div class="technical-stack">
+<figure class="project-detail-figure"><img alt="Vision object detections" loading="lazy" src="assets/vision-detections.png"/><figcaption>Real-time object detection and depth-assisted perception.</figcaption></figure>
+<figure class="project-detail-figure"><img alt="Structured perception memory output" loading="lazy" src="assets/perception-memory-output.png"/><figcaption>Structured perception and memory state shared with the reasoning pipeline.</figcaption></figure>
+<figure class="project-detail-figure"><img alt="Spatial mapping and inverse kinematics target" loading="lazy" src="assets/spatial-mapping-ik-target.png"/><figcaption>Camera observations mapped to robot-relative target coordinates.</figcaption></figure>
+<figure class="project-detail-figure"><img alt="Inverse and forward kinematics solver output" loading="lazy" src="assets/ik-fk-solver-output.png"/><figcaption>Candidate pose generation and FK-based reachability verification.</figcaption></figure>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-safety-section">
+<div class="container project-detail-safety-grid">
+<div><p class="project-detail-section-label">Planner–Controller Safety</p><h2>The language model never controls the motors directly</h2><p>Each proposed tool call is checked against the action schema, current robot state, target availability, reachability, and safety constraints. The result can be approved, repaired, rejected, or returned for clarification.</p><ul class="detail-check-list"><li>Structured JSON schema validation</li><li>State-aware precondition checking</li><li>Repair of incomplete or inconsistent arguments</li><li>Clarification for ambiguous commands</li><li>Rejection of unsupported or unsafe execution</li></ul></div>
+<figure class="project-detail-figure"><img alt="Planner and Controller validation decision" loading="lazy" src="assets/planner-controller-decision.png"/><figcaption>Example deterministic decision before physical execution.</figcaption></figure>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container">
+<div class="project-detail-heading"><p class="project-detail-section-label">Evaluation</p><h2>Strong perception and validation, with grasp stability as the main limitation</h2><p>The project was evaluated at individual pipeline stages rather than presenting only final-task success.</p></div>
+<div class="metric-grid">
+<article><strong>95%</strong><span>Target-object detection</span></article>
+<article><strong>100%</strong><span>JSON validity</span></article>
+<article><strong>77.78%</strong><span>Raw tool-call accuracy</span></article>
+<article><strong>100%</strong><span>Unsafe execution prevention</span></article>
+<article><strong>10%</strong><span>Successful physical picks</span></article>
+</div>
+<div class="evaluation-layout">
+<div class="evaluation-table-wrap"><table class="evaluation-table"><thead><tr><th>Evaluation stage</th><th>Result</th></tr></thead><tbody><tr><td>Visible-object detection</td><td>90%</td></tr><tr><td>Target-object detection</td><td>95%</td></tr><tr><td>Object search with head movement</td><td>75%</td></tr><tr><td>Object centring</td><td>85%</td></tr><tr><td>JSON validity</td><td>100%</td></tr><tr><td>Planner/Controller validation handling</td><td>100%</td></tr><tr><td>Successful physical pick</td><td>10%</td></tr></tbody></table></div>
+<aside class="evaluation-note"><h3>Engineering interpretation</h3><p>The principal limitation was final-grasp stability, not perception, structured reasoning, or action validation. Fixed-base geometry, limited 5-DOF flexibility, depth uncertainty, alignment sensitivity, and mechanical tolerance reduced physical pick consistency.</p><p>Reporting this separation makes it possible to identify exactly which subsystem requires further development.</p></aside>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container">
+<div class="project-detail-heading"><p class="project-detail-section-label">Hardware Integration</p><h2>One complete hardware–software research platform</h2></div>
+<div class="hardware-layout"><figure class="project-detail-figure"><img alt="Humanoid robot hardware integration" loading="lazy" src="assets/hardware-integration.png"/></figure><div class="hardware-list"><div><strong>Perception</strong><span>OAK-D Lite RGB-D camera, active pan-tilt head, object detection, depth and centre-point estimation</span></div><div><strong>Motion</strong><span>5-DOF arm, parallel gripper, IK/FK-supported pose generation and serial motion commands</span></div><div><strong>Embedded control</strong><span>Arduino-based low-level controller, stepper and servo actuation, sensor feedback and safety limits</span></div><div><strong>Reasoning</strong><span>Custom OAX-1B-Humanoid model, JSON tool calls, Planner–Controller validation and robot-state memory</span></div></div></div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container project-detail-final-card">
+<div><p class="project-detail-section-label">Project Links</p><h2>Explore the model and related work</h2><p>The portfolio page presents the complete system at a high level. Source code, model files, examples, and technical documentation remain available through the project repositories.</p></div>
+<div class="project-detail-final-actions"><a class="button button-primary" href="https://github.com/orhanaydinn/oax_humanoid_robot" rel="noopener noreferrer" target="_blank">View Repository ↗</a><a class="button button-secondary" href="https://huggingface.co/orhanaydinn/OAX-1B-Humanoid" rel="noopener noreferrer" target="_blank">OAX-1B Model ↗</a><a class="button button-secondary" href="../../projects.html">All Projects →</a></div>
+</div>
+</section>
+</main>
+<footer class="footer">© 2026 Orhan Aydin. Built around robotics, AI, and complete engineering systems.</footer>
+<script src="../../script.js"></script>
+</body>
+</html>

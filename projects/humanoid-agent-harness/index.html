@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Humanoid Agent Harness | Orhan Aydin</title>
+  <meta name="description" content="Technical case study of an OAX-1B-powered virtual robot agent harness with structured observations, JSON tool calls and deterministic Controller validation." />
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="../../index.html" class="logo"><span class="logo-mark">O</span><span>Orhan Aydin</span></a>
+      <div class="nav-links">
+        <a href="../../about.html" class="nav-link">About</a>
+        <a href="../../projects.html" class="nav-link active">Projects</a>
+        <a href="../../index.html#certificates" class="nav-link">Certificates</a>
+        <a href="../../index.html#experience" class="nav-link">Experience</a>
+        <a href="../../index.html#contact" class="nav-link">Contact</a>
+        <a href="../../assets/Orhan-Aydin-CV.pdf" class="nav-button" target="_blank" rel="noopener noreferrer">Download CV <span class="button-icon">↓</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="project-detail-page oax-case-study-page agent-case-study-page">
+    <section class="project-detail-hero section">
+      <div class="container project-detail-hero-grid">
+        <div class="project-detail-hero-copy">
+          <a class="project-back-link" href="../../projects.html">← Back to Projects</a>
+          <div class="project-detail-kicker-row">
+            <span class="project-detail-kicker">LLM Agents · Safe Tool Execution</span>
+            <span class="project-year-badge">2026</span>
+          </div>
+          <h1>Humanoid Agent Harness</h1>
+          <p class="project-detail-lead">A configurable virtual robot environment that connects the hosted OAX-1B-Humanoid model to structured observations, JSON tool calls and deterministic Controller validation for goal-directed find, pick and place tasks.</p>
+          <div class="project-detail-actions">
+            <a class="button button-primary" href="https://github.com/orhanaydinn/humanoid_agent_harness" target="_blank" rel="noopener noreferrer">View GitHub <span class="button-icon">↗</span></a>
+            <a class="button button-secondary" href="https://drive.google.com/file/d/1RxVhzRdtgY-IFzAmc1D7efbQyPrlYRvs/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Watch Demo <span class="button-icon">↗</span></a>
+          </div>
+          <div class="tag-list project-detail-tags">
+            <span>OAX-1B</span><span>LLM Agents</span><span>JSON Tool Calling</span><span>Controller Validation</span><span>Python</span><span>Hugging Face API</span>
+          </div>
+        </div>
+
+        <div class="oax-hero-console" aria-label="Controller repair example">
+          <div class="oax-console-bar"><span></span><span></span><span></span><strong>controller trace</strong></div>
+          <pre><code><span class="json-tag">GOAL</span>
+find the cup and pick it up
+
+<span class="json-tag">LLM PROPOSAL</span>
+place_object(
+  object=<span class="json-string">"bottle"</span>,
+  destination=<span class="json-string">"table"</span>
+)
+
+<span class="json-tag">CONTROLLER</span>
+<span class="json-key">REPAIR</span> → search_object(
+  object=<span class="json-string">"cup"</span>
+)
+
+<span class="json-tag">WORLD</span>
+Agent moved to the cup.</code></pre>
+          <div class="oax-console-status"><span>✓</span> Invalid proposal blocked before state update</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Problem</p>
+          <h2>Language-model output is useful, but it cannot be trusted as execution authority</h2>
+        </div>
+        <div class="project-detail-prose case-study-prose">
+          <p>An LLM can interpret flexible natural-language goals, but it can also select the wrong tool, refer to the wrong object or request an action before its preconditions are satisfied. Directly applying those outputs to a robot or environment would make state transitions unpredictable.</p>
+          <p>The harness therefore separates high-level language reasoning from deterministic execution. OAX-1B proposes a structured action; a state-aware Controller decides what the environment is actually allowed to execute.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section project-detail-soft-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Agent Loop</p>
+          <h2>A small, explicit and inspectable control architecture</h2>
+        </div>
+        <div class="case-study-steps">
+          <article><span>01</span><div><h3>Goal classification</h3><p>The user request is interpreted as find-only, find-and-pick or pick-and-place.</p></div></article>
+          <article><span>02</span><div><h3>Structured observation</h3><p>The model receives agent position, inventory, target state, reachability and the available tool list.</p></div></article>
+          <article><span>03</span><div><h3>Hosted OAX-1B inference</h3><p>The current observation is sent to the OAX-1B-Humanoid model through a Hugging Face Space API.</p></div></article>
+          <article><span>04</span><div><h3>Controller validation or repair</h3><p>The Controller checks action order, arguments, inventory and reachability before choosing the executable action.</p></div></article>
+          <article><span>05</span><div><h3>World state update</h3><p>Only the Controller-approved action changes the agent position, inventory or goal-completion state.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Observation Contract</p>
+          <h2>The LLM sees a bounded machine-readable snapshot</h2>
+        </div>
+        <div>
+          <article class="oax-code-card case-study-code-card">
+            <div class="oax-code-heading"><span>Example world observation</span><small>JSON</small></div>
+            <pre><code>{
+  <span class="json-key">"goal"</span>: <span class="json-string">"find the cup and pick it up"</span>,
+  <span class="json-key">"task_type"</span>: <span class="json-string">"find_and_pick"</span>,
+  <span class="json-key">"agent"</span>: {
+    <span class="json-key">"position"</span>: [0, 0],
+    <span class="json-key">"inventory"</span>: []
+  },
+  <span class="json-key">"visible_objects"</span>: [{
+    <span class="json-key">"id"</span>: <span class="json-string">"cup"</span>,
+    <span class="json-key">"position"</span>: [4, 8],
+    <span class="json-key">"distance"</span>: 12,
+    <span class="json-key">"reachable"</span>: false,
+    <span class="json-key">"held"</span>: false
+  }],
+  <span class="json-key">"available_tools"</span>: [
+    <span class="json-string">"search_object"</span>,
+    <span class="json-string">"pick_object"</span>,
+    <span class="json-string">"place_object"</span>,
+    <span class="json-string">"stop"</span>
+  ]
+}</code></pre>
+          </article>
+          <p class="case-study-note">The model receives observation data but cannot directly modify the world. State changes are owned by the Controller and environment layers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section project-detail-soft-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Action Contract</p>
+          <h2>A deliberately constrained tool vocabulary</h2>
+        </div>
+        <div class="case-study-prose case-study-prose-wide">
+          <p>The hosted model proposes one of six high-level actions. Keeping the vocabulary compact makes validation transparent and prevents the language model from bypassing the intended control flow.</p>
+          <div class="technical-token-list" aria-label="Supported actions">
+            <code>get_visible_objects</code>
+            <code>get_robot_status</code>
+            <code>search_object</code>
+            <code>pick_object</code>
+            <code>place_object</code>
+            <code>stop</code>
+          </div>
+          <p><code>search_object</code>, <code>pick_object</code> and <code>place_object</code> are only valid when the current world state satisfies the relevant preconditions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Controller Behaviour</p>
+          <h2>Invalid model actions are repaired before execution</h2>
+        </div>
+        <div>
+          <article class="oax-code-card case-study-code-card">
+            <div class="oax-code-heading"><span>Step-level execution trace</span><small>TEXT</small></div>
+            <pre><code><span class="json-tag">Before</span>
+agent=[0,0] | inventory=[]
+cup=pos[5,8], dist=13, reachable=False
+
+<span class="json-tag">LLM</span>
+place_object(object=bottle, target=user)
+
+<span class="json-tag">Controller</span>
+<span class="json-key">REPAIR</span> | corrected LLM tool
+→ search_object(object=cup)
+
+<span class="json-tag">World</span>
+Agent searched for cup and found it.
+
+<span class="json-tag">After</span>
+agent=[5,8] | inventory=[]
+cup=pos[5,8], dist=0, reachable=True</code></pre>
+          </article>
+          <p class="case-study-note">The visible LLM proposal is preserved in the log for inspection, but only the repaired action is passed to the environment.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section project-detail-soft-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Evaluation</p>
+          <h2>Twenty mixed scenarios completed in the included batch trace</h2>
+        </div>
+        <div>
+          <div class="agent-metric-grid">
+            <article><strong>20 / 20</strong><span>Scenarios completed</span></article>
+            <article><strong>100%</strong><span>Batch completion rate</span></article>
+            <article><strong>55</strong><span>Controller-governed steps</span></article>
+            <article><strong>0</strong><span>Direct LLM world updates</span></article>
+          </div>
+
+          <div class="model-comparison-table-wrap agent-results-table-wrap">
+            <table class="model-comparison-table">
+              <thead><tr><th>Task type</th><th>Scenarios</th><th>Completed</th><th>Controller steps</th></tr></thead>
+              <tbody>
+                <tr><td>Find only</td><td>5</td><td>5 / 5</td><td>5</td></tr>
+                <tr><td>Find and pick</td><td>5</td><td>5 / 5</td><td>10</td></tr>
+                <tr><td>Pick and place</td><td>10</td><td>10 / 10</td><td>40</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="case-study-note">These figures describe the supplied batch log. They are not presented as a general benchmark beyond that evaluation set.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Evaluation Data</p>
+          <h2>Machine-readable summary embedded in the case study</h2>
+        </div>
+        <div>
+          <article class="oax-code-card case-study-code-card agent-json-card">
+            <div class="oax-code-heading"><span>Batch evaluation summary</span><small>JSON</small></div>
+            <pre><code>{
+  "evaluation_scope": "included 20-scenario batch trace",
+  "scenarios": 20,
+  "successful_scenarios": 20,
+  "success_rate": 1.0,
+  "task_types": {
+    "find_only": {
+      "scenarios": 5,
+      "completed": 5,
+      "controller_steps": 5
+    },
+    "find_and_pick": {
+      "scenarios": 5,
+      "completed": 5,
+      "controller_steps": 10
+    },
+    "pick_and_place": {
+      "scenarios": 10,
+      "completed": 10,
+      "controller_steps": 40
+    }
+  },
+  "controller_governed_steps": 55,
+  "controller_repairs_in_trace": 55,
+  "direct_llm_world_updates": 0,
+  "execution_policy": "Only Controller-approved or Controller-repaired actions update world state."
+}</code></pre>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section project-detail-soft-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Software Structure</p>
+          <h2>Agent, Controller and environment remain separate modules</h2>
+        </div>
+        <div>
+          <pre class="plain-technical-block project-tree-block"><code>humanoid_agent_harness/
+├── main.py
+├── run_batch_examples.py
+├── agent/
+│   └── hf_agent.py
+├── controller/
+│   └── controller.py
+├── environment/
+│   └── world.py
+└── examples/
+    └── successful_run.txt</code></pre>
+          <p class="case-study-note">The default hosted workflow uses <code>gradio_client</code> and does not require reviewers to download the 1B-parameter model locally.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Limitations</p>
+          <h2>An inspectable harness rather than a physics simulator</h2>
+        </div>
+        <div class="case-study-findings">
+          <article><h3>Grid-based environment</h3><p>The current world does not model physics, collisions, perception uncertainty or continuous robot motion.</p></article>
+          <article><h3>Hosted inference latency</h3><p>The Hugging Face Space currently runs on CPU and can introduce cold-start and runtime delays.</p></article>
+          <article><h3>Constrained task set</h3><p>The Controller intentionally supports a small set of tools and task patterns to keep validation deterministic and easy to inspect.</p></article>
+          <article><h3>Physical deployment requirements</h3><p>Returning the harness to the real humanoid robot would require perception validation, motion planning, collision checks and hardware-level safety controls.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section project-detail-soft-section">
+      <div class="container case-study-grid">
+        <div class="case-study-aside">
+          <p class="project-detail-section-label">Outcome</p>
+          <h2>A complete agent loop with deterministic execution boundaries</h2>
+        </div>
+        <div class="project-detail-prose case-study-prose">
+          <p>The project demonstrates how a custom language model can interact with an environment through structured tools while remaining constrained by a separate execution layer.</p>
+          <p>The result is a lightweight platform for inspecting model decisions, Controller repairs and world-state transitions without requiring access to the physical humanoid robot.</p>
+          <div class="project-detail-actions">
+            <a class="button button-primary" href="https://github.com/orhanaydinn/humanoid_agent_harness" target="_blank" rel="noopener noreferrer">View Repository <span class="button-icon">↗</span></a>
+            <a class="button button-secondary" href="../../projects.html">Back to Projects <span class="button-icon">←</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© 2026 Orhan Aydin. Built for engineering, AI, and robotics.</footer>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SCARA Robot Design, Manufacturing &amp; Control | Orhan Aydin</title>
+<meta content="BSc dissertation project covering SCARA robot mechanical design, 3D-printed manufacturing, Arduino control, forward and inverse kinematics, and a Processing interface." name="description"/>
+<link href="../../style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<header class="site-header">
+<nav class="navbar container">
+<a class="logo" href="../../index.html"><span class="logo-mark">O</span><span>Orhan Aydin</span></a>
+<div class="nav-links">
+<a class="nav-link" href="../../about.html">About</a>
+<a class="nav-link active" href="../../projects.html">Projects</a>
+<a class="nav-link" href="../../index.html#certificates">Certificates</a>
+<a class="nav-link" href="../../index.html#experience">Experience</a>
+<a class="nav-link" href="../../index.html#contact">Contact</a>
+<a class="nav-button" href="../../assets/Orhan-Aydin-CV.pdf" rel="noopener noreferrer" target="_blank">Download CV <span class="button-icon">↓</span></a>
+</div>
+</nav>
+</header>
+<main class="project-detail-page scara-detail-page">
+<section class="project-detail-hero section">
+<div class="container project-detail-hero-grid">
+<div class="project-detail-hero-copy">
+<a class="project-back-link" href="../../projects.html">← Back to Projects</a>
+<div class="project-detail-kicker-row">
+<span class="project-detail-kicker">BSc Dissertation · Robotics</span>
+<span class="project-year-badge">2022</span>
+</div>
+<h1>SCARA Robot Design, Manufacturing &amp; Control</h1>
+<p class="project-detail-lead">My BSc dissertation project: a custom SCARA robot developed from mechanical design and 3D-printed manufacturing through embedded control, homing, kinematics and a Processing-based desktop interface.</p>
+<div class="project-detail-actions">
+<a class="button button-primary" href="https://github.com/orhanaydinn/scara-robot-design-and-control" rel="noopener noreferrer" target="_blank">View GitHub <span class="button-icon">↗</span></a>
+</div>
+<div class="tag-list project-detail-tags">
+<span>SolidWorks</span><span>Arduino</span><span>Processing</span><span>Forward Kinematics</span><span>Inverse Kinematics</span><span>3D Printing</span>
+</div>
+</div>
+<div class="project-detail-hero-media scara-hero-media">
+<video aria-label="SCARA robot design, manufacturing and control demonstration" autoplay="" loop="" muted="" playsinline="" poster="../../assets/scara_robot-poster.jpg" preload="metadata">
+<source src="../../assets/scara_robot.mp4" type="video/mp4"/>
+            Your browser does not support the video tag.
+          </video>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Project Brief</p>
+<h2>From CAD model to a working mechatronics prototype</h2>
+</div>
+<div class="project-detail-prose case-study-prose">
+<p>The project was completed as my undergraduate dissertation in Mechatronics Engineering. I designed the SCARA structure in SolidWorks, manufactured the chassis with PLA 3D printing, assembled the mechanical transmission and developed the embedded and desktop control software.</p>
+<p>The final system combined four stepper-driven axes, a servo gripper, limit-switch homing, serial communication and a user interface capable of manual joint control, coordinate-based motion and repeated playback of recorded positions.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Physical Prototype</p>
+<h2>3D-printed structure with belt-driven joints</h2>
+</div>
+<div class="scara-media-stack">
+<figure class="project-detail-figure scara-prototype-figure">
+<img alt="Physical SCARA robot prototype beside the control interface" loading="lazy" src="assets/scara-physical-prototype.png"/>
+<figcaption>The completed prototype and its desktop control interface.</figcaption>
+</figure>
+<div class="project-detail-prose case-study-prose">
+<p>The chassis was printed in PLA using approximately 2 kg of filament over a two-to-three-week manufacturing period. Bearings, guide rods and belt transmissions were used to reduce friction and move the motor loads away from the main rotating axes.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container">
+<div class="project-detail-heading">
+<p class="project-detail-section-label">Mechanical Design</p>
+<h2>Torque-oriented belt and pulley transmission</h2>
+<p>The main rotary joints use pulley reductions to increase effective output torque while keeping the NEMA 17 motors mounted away from the moving links.</p>
+</div>
+<div class="scara-three-column-media">
+<figure class="project-detail-figure"><img alt="Base and Arm 1 belt and pulley torque calculation" loading="lazy" src="assets/base-belt-pulley-torque.png"/><figcaption>Base and first-arm transmission.</figcaption></figure>
+<figure class="project-detail-figure"><img alt="Arm 2 belt and pulley torque calculation" loading="lazy" src="assets/arm2-belt-pulley-torque.jpg"/><figcaption>Second-arm transmission.</figcaption></figure>
+<figure class="project-detail-figure"><img alt="Arm 3 belt and pulley torque calculation" loading="lazy" src="assets/arm3-belt-pulley-torque.jpg"/><figcaption>Final rotary joint transmission.</figcaption></figure>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Electronics</p>
+<h2>Arduino-based four-axis motion control</h2>
+</div>
+<div>
+<div class="project-detail-prose case-study-prose">
+<p>The control hardware uses an Arduino Uno with a CNC Shield, four A4988 stepper drivers, four NEMA 17 motors, an SG90 servo motor and limit switches for axis referencing.</p>
+<p>At startup, the robot homes each axis against its limit switch before accepting commands, creating a repeatable reference for recorded motion sequences.</p>
+</div>
+<figure class="project-detail-figure scara-electrical-figure">
+<img alt="Electrical wiring diagram for the SCARA robot" loading="lazy" src="assets/electrical-wiring-diagram.jpg"/>
+<figcaption>Arduino, CNC Shield, stepper drivers, motors, servo and limit-switch wiring.</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Software</p>
+<h2>Processing interface, serial communication and kinematics</h2>
+</div>
+<div class="scara-media-stack">
+<figure class="project-detail-figure scara-interface-figure">
+<img alt="Processing-based control interface for the SCARA robot" loading="lazy" src="assets/processing-control-interface.png"/>
+<figcaption>The desktop interface for joint commands, target coordinates, recording and playback.</figcaption>
+</figure>
+<div class="project-detail-prose case-study-prose">
+<p>The Processing interface sends joint and coordinate data to Arduino through a serial connection. It supports forward-kinematics control, inverse-kinematics target input, gripper control, step-size adjustment, motion recording and looped playback.</p>
+<p>The inverse-kinematics routine converts X-Y target coordinates into joint angles and calculates an orientation angle to keep the gripper aligned with the selected axis.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Operating Sequence</p>
+<h2>Homing, command execution and recorded motion</h2>
+</div>
+<div class="case-study-steps">
+<article><span>01</span><div><h3>Home every axis</h3><p>Each axis moves to its limit switch to establish a repeatable reference position.</p></div></article>
+<article><span>02</span><div><h3>Receive interface commands</h3><p>The Processing application sends joint values or target coordinates through the serial port.</p></div></article>
+<article><span>03</span><div><h3>Execute movement</h3><p>Arduino converts the received data into stepper and servo commands.</p></div></article>
+<article><span>04</span><div><h3>Record and replay</h3><p>Saved positions are executed in sequence and can be repeated until the operator stops the cycle.</p></div></article>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container">
+<div class="project-detail-heading">
+<p class="project-detail-section-label">Demonstration</p>
+<h2>Project videos extracted from the original dissertation presentation</h2>
+</div>
+<div class="scara-demo-grid">
+<video autoplay="" loop="" muted="" playsinline="" poster="assets/scara-demo-1-poster.jpg" preload="metadata"><source src="assets/scara-demo-1.mp4" type="video/mp4"/></video>
+<video autoplay="" loop="" muted="" playsinline="" poster="assets/scara-demo-2-poster.jpg" preload="metadata"><source src="assets/scara-demo-2.mp4" type="video/mp4"/></video>
+<video autoplay="" loop="" muted="" playsinline="" poster="assets/scara-demo-3-poster.jpg" preload="metadata"><source src="assets/scara-demo-3.mp4" type="video/mp4"/></video>
+</div>
+</div>
+</section>
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside">
+<p class="project-detail-section-label">Limitations</p>
+<h2>Educational prototype rather than industrial hardware</h2>
+</div>
+<div class="project-detail-prose case-study-prose">
+<p>The robot uses open-loop stepper control, so positioning accuracy depends on successful homing and the absence of skipped steps. Mechanical accuracy is also constrained by 3D-printed tolerances, belt tension and assembly alignment.</p>
+<p>The project demonstrates complete mechatronics integration, but it was developed as a BSc dissertation prototype rather than a production-certified industrial robot.</p>
+</div>
+</div>
+</section>
+<section class="project-detail-section">
+<div class="container project-detail-cta">
+<div><p class="project-detail-section-label">Project Link</p><h2>Review the source code and technical documentation</h2></div>
+<div class="project-detail-actions">
+<a class="button button-primary" href="https://github.com/orhanaydinn/scara-robot-design-and-control" rel="noopener noreferrer" target="_blank">View GitHub <span class="button-icon">↗</span></a>
+<a class="button button-secondary" href="../../projects.html">Back to Projects <span class="button-icon">←</span></a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">© 2026 Orhan Aydin. Built for engineering, AI, and robotics.</footer>
+</body>
+</html>
