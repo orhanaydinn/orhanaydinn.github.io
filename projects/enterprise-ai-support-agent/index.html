@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Enterprise AI Support Agent | Orhan Aydin</title>
+<meta content="Technical case study of a production-style serverless AI support agent built with Amazon Bedrock, FastAPI, React, AWS Lambda, semantic policy retrieval, deterministic business rules, controlled tools, citations, and DynamoDB audit records." name="description"/>
+<link href="../../style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<header class="site-header">
+<nav class="navbar container">
+<a class="logo" href="../../index.html"><span class="logo-mark">O</span><span>Orhan Aydin</span></a>
+<div class="nav-links">
+<a class="nav-link" href="../../about.html">About</a>
+<a class="nav-link active" href="../../projects.html">Projects</a>
+<a class="nav-link" href="../../index.html#certificates">Certificates</a>
+<a class="nav-link" href="../../index.html#experience">Experience</a>
+<a class="nav-link" href="../../index.html#contact">Contact</a>
+<a class="nav-button" href="../../assets/Orhan-Aydin-CV.pdf" rel="noopener noreferrer" target="_blank">Download CV <span class="button-icon">↓</span></a>
+</div>
+</nav>
+</header>
+<main class="project-detail-page">
+<section class="project-detail-hero section">
+<div class="container project-detail-hero-grid">
+<div class="project-detail-hero-copy">
+<a class="project-back-link" href="../../projects.html">← Back to Projects</a>
+<div class="project-detail-kicker-row">
+<span class="project-detail-kicker">Generative AI · Cloud AI · Agentic Workflows</span>
+<span class="project-year-badge">2026</span>
+</div>
+<h1>Enterprise AI Support Agent</h1>
+<p class="project-detail-lead">A production-style serverless customer-support agent that combines Amazon Bedrock with semantic policy retrieval, deterministic business rules, identity validation, controlled tool execution, citations, observability, and persistent audit records.</p>
+<div class="project-detail-actions">
+<a class="button button-primary" href="https://d1qo68bktehjcu.cloudfront.net" rel="noopener noreferrer" target="_blank">Open Live Demo <span class="button-icon">↗</span></a>
+<a class="button button-secondary" href="https://github.com/orhanaydinn" rel="noopener noreferrer" target="_blank">GitHub Profile <span class="button-icon">↗</span></a>
+</div>
+<div class="tag-list project-detail-tags">
+<span>Amazon Bedrock</span><span>Amazon Titan</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>AWS Lambda</span><span>API Gateway</span><span>DynamoDB</span>
+</div>
+</div>
+<div class="project-detail-hero-media case-study-hero-media">
+<img alt="Enterprise AI Support Agent application interface" src="assets/application-overview.png"/>
+</div>
+</div>
+</section>
+
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside"><p class="project-detail-section-label">Problem</p><h2>Enterprise AI needs more than a generated answer</h2></div>
+<div class="project-detail-prose case-study-prose">
+<p>A customer-support model cannot safely make unrestricted refund, cancellation, escalation, or order decisions. A useful enterprise system must verify identity, retrieve the correct policy, apply auditable business logic, restrict tool access, and preserve the complete outcome of each request.</p>
+<p>This project was built to demonstrate that separation of responsibilities. The language model interprets requests and generates grounded explanations, while deterministic backend components retain control over final business decisions and executable actions.</p>
+</div>
+</div>
+</section>
+
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside"><p class="project-detail-section-label">Architecture</p><h2>A serverless end-to-end AWS application</h2></div>
+<div>
+<div aria-label="Enterprise AI support agent architecture" class="pipeline-list case-study-pipeline">
+<span>CloudFront</span><b>→</b><span>S3 + React</span><b>→</b><span>API Gateway</span><b>→</b><span>Lambda + FastAPI</span><b>→</b><span>Bedrock + Titan</span><b>→</b><span>DynamoDB</span>
+</div>
+<p class="case-study-note">The frontend is delivered through Amazon CloudFront from a private S3 bucket. API Gateway invokes a container-based AWS Lambda backend that coordinates validation, retrieval, decision logic, response generation, tool routing, and persistence.</p>
+</div>
+</div>
+</section>
+
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside"><p class="project-detail-section-label">Workflow</p><h2>From customer message to controlled action</h2></div>
+<div class="case-study-steps">
+<article><span>01</span><div><h3>Validate and classify</h3><p>Pydantic schemas validate the request before Amazon Bedrock classifies it into a supported workflow. Low-confidence classifications fall back to deterministic intent logic.</p></div></article>
+<article><span>02</span><div><h3>Verify order identity</h3><p>The backend checks that the order exists and that the supplied customer ID matches before exposing order details or evaluating an operation.</p></div></article>
+<article><span>03</span><div><h3>Retrieve relevant policy</h3><p>Amazon Titan Text Embeddings represents the customer request and selected policy chunks. Cosine similarity ranks the most relevant evidence for the current workflow.</p></div></article>
+<article><span>04</span><div><h3>Apply deterministic rules</h3><p>Refund, cancellation, damaged-item, shipping, and late-delivery outcomes are evaluated by explicit backend functions rather than by the language model.</p></div></article>
+<article><span>05</span><div><h3>Generate a grounded response</h3><p>Bedrock receives the verified order data, deterministic decision, original request, and retrieved evidence to produce the customer-facing explanation.</p></div></article>
+<article><span>06</span><div><h3>Route tools and persist results</h3><p>Only mapped tools can execute. Support-ticket results, citations, latency, decisions, and trace steps are stored in DynamoDB as a permanent audit record.</p></div></article>
+</div>
+</div>
+</section>
+
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside"><p class="project-detail-section-label">Application Output</p><h2>Structured decisions instead of opaque chat responses</h2></div>
+<div class="project-detail-prose case-study-prose">
+<img alt="AI support response with status, latency, order, ticket and decision reason" src="assets/agent-response.png"/>
+<p>The interface exposes the assistant response together with the final workflow status, eligibility result, processing latency, verified order reference, generated support-ticket ID, and deterministic decision reason.</p>
+</div>
+</div>
+</section>
+
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside"><p class="project-detail-section-label">Grounding &amp; Observability</p><h2>Citations and a complete execution trace</h2></div>
+<div class="project-detail-prose case-study-prose">
+<img alt="Retrieved policy citations and observable agent trace" src="assets/citations-trace.png"/>
+<p>The user can inspect the policy chunks used as evidence and follow the workflow step by step. The trace covers validation, intent classification, workflow selection, order lookup, identity validation, policy retrieval, decision logic, response generation, tool routing, tool execution, and the final decision.</p>
+</div>
+</div>
+</section>
+
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside"><p class="project-detail-section-label">Safety Design</p><h2>The model explains decisions but does not own them</h2></div>
+<div class="case-study-findings">
+<article><h3>Deterministic authority</h3><p>Eligibility and workflow outcomes are produced by explicit business-rule functions. Retrieved text and generated language cannot override the result.</p></article>
+<article><h3>Controlled tools</h3><p>The agent cannot call arbitrary functions. Only backend tools explicitly mapped for the selected workflow can receive validated structured arguments.</p></article>
+<article><h3>Identity protection</h3><p>Order information is withheld when the order ID is missing, the order does not exist, or the customer ID does not match.</p></article>
+<article><h3>Fallback behaviour</h3><p>Deterministic providers handle low-confidence intent classification, unavailable model calls, or invalid generated output.</p></article>
+</div>
+</div>
+</section>
+
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside"><p class="project-detail-section-label">Supported Workflows</p><h2>Multiple support requests share one governed pipeline</h2></div>
+<div class="model-comparison-table-wrap">
+<table class="model-comparison-table">
+<thead><tr><th>Workflow</th><th>Typical result</th></tr></thead>
+<tbody>
+<tr><td>Late delivery</td><td>Delivery status evaluation and controlled review-ticket creation.</td></tr>
+<tr><td>Shipping information</td><td>Verified shipping information grounded in the relevant policy.</td></tr>
+<tr><td>Refund request</td><td>Deterministic eligibility decision or human-review route.</td></tr>
+<tr><td>Cancellation request</td><td>Cancellation decision based on order state and business rules.</td></tr>
+<tr><td>Damaged item</td><td>Damage review workflow and support-ticket creation.</td></tr>
+<tr><td>Order status</td><td>Identity-verified order information.</td></tr>
+<tr><td>General support</td><td>Safe escalation for unsupported or ambiguous requests.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside"><p class="project-detail-section-label">Technology Stack</p><h2>Frontend, backend, AI, and infrastructure</h2></div>
+<div class="case-study-findings">
+<article><h3>Frontend</h3><p>React, TypeScript, Vite, CSS, Fetch API, Amazon S3, and Amazon CloudFront.</p></article>
+<article><h3>Backend</h3><p>Python 3.12, FastAPI, Pydantic, Mangum, Boto3, and an AWS Lambda container.</p></article>
+<article><h3>AI and retrieval</h3><p>Amazon Bedrock Nova, Amazon Titan Text Embeddings, semantic retrieval, cosine similarity, citations, and deterministic fallbacks.</p></article>
+<article><h3>Infrastructure</h3><p>API Gateway, DynamoDB, ECR, IAM, CloudFormation, AWS SAM, CloudWatch, and Docker.</p></article>
+</div>
+</div>
+</section>
+
+<section class="project-detail-section">
+<div class="container case-study-grid">
+<div class="case-study-aside"><p class="project-detail-section-label">Project Structure</p><h2>Modules separate planning, validation, retrieval, services, and tools</h2></div>
+<div>
+<pre class="plain-technical-block project-tree-block"><code>enterprise-ai-support-agent/
+├── backend/
+│   ├── app/
+│   │   ├── agent/       # planner, workflows, validator, tool router
+│   │   ├── models/      # request, response and tool schemas
+│   │   ├── rag/         # policy loading, chunking and retrieval
+│   │   ├── services/    # Bedrock, policy and persistence services
+│   │   ├── tools/       # order lookup and ticket creation
+│   │   └── routers/     # FastAPI endpoints
+│   └── data/policies/
+├── frontend/src/        # React interface, services and types
+├── template.yaml        # AWS SAM infrastructure
+├── Dockerfile.lambda
+└── docker-compose.yml</code></pre>
+<p class="case-study-note">This structure keeps model interaction separate from final authority, making individual services and workflow rules easier to test, replace, and audit.</p>
+</div>
+</div>
+</section>
+
+<section class="project-detail-section project-detail-soft-section">
+<div class="container case-study-grid">
+<div class="case-study-aside"><p class="project-detail-section-label">Deployment Scope</p><h2>A public portfolio demonstration with intentionally controlled actions</h2></div>
+<div class="project-detail-prose case-study-prose">
+<p>The live deployment demonstrates the complete production-style workflow, but it does not perform real refunds, cancellations, carrier operations, or external helpdesk actions. The current tool layer creates controlled support-ticket records and stores them in DynamoDB.</p>
+<p>This keeps the public application safe while still demonstrating model integration, serverless deployment, retrieval, validation, tool routing, observability, and persistence.</p>
+</div>
+</div>
+</section>
+
+<section class="project-detail-section">
+<div class="container project-detail-cta">
+<div><p class="project-detail-section-label">Project Links</p><h2>Explore the deployed application</h2></div>
+<div class="project-detail-actions">
+<a class="button button-primary" href="https://d1qo68bktehjcu.cloudfront.net" rel="noopener noreferrer" target="_blank">Open Live Demo <span class="button-icon">↗</span></a>
+<a class="button button-secondary" href="https://github.com/orhanaydinn" rel="noopener noreferrer" target="_blank">GitHub Profile <span class="button-icon">↗</span></a>
+<a class="button button-secondary" href="../../projects.html">Back to Projects <span class="button-icon">←</span></a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">© 2026 Orhan Aydin. Built for engineering, AI, and robotics.</footer>
+</body>
+</html>
