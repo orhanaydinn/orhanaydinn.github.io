@@ -5708,3 +5708,10 @@ video[controls] {
   transform: none !important;
   scale: 1 !important;
 }
+
+/* Card-wide navigation retains independent GitHub and demo links. */
+.linked-project-card{position:relative;isolation:isolate}
+.linked-project-card .project-card-primary-link::after{content:"";position:absolute;inset:0;z-index:1;border-radius:inherit}
+.linked-project-card a:not(.project-card-primary-link),.linked-project-card button,.linked-project-card video[controls]{position:relative;z-index:2}
+.linked-project-card:has(.project-card-primary-link:focus-visible){outline:3px solid var(--blue);outline-offset:4px}
+.linked-project-card .project-card-primary-link{position:static}
